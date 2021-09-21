@@ -24,6 +24,7 @@ module sim_clk_rst(
     output  reg                 clk_125m        ,
     output  reg                 clk_200m        ,
     output  reg                 clk_250m        ,
+    output  reg                 clk_500m        ,
     output  reg                 rstn
     );
 
@@ -34,6 +35,7 @@ initial begin
     clk_125m    = 1'd0;
     clk_200m    = 1'd0;
     clk_250m    = 1'd0;
+    clk_500m    = 1'd0;
 end
 
 always begin
@@ -55,6 +57,11 @@ end
 always begin
     clk_250m = #(2) ~clk_250m;
 end
+
+always begin
+    clk_500m = #(1) ~clk_500m;
+end
+
 
 // >>>>>>>>>> rstn
 initial begin
