@@ -1,2 +1,0 @@
-vio_cfg.v,verilog,xil_defaultlib,../../../ip/vio_cfg/sim/vio_cfg.v,incdir="../../../ip/vio_cfg/hdl/verilog"incdir="../../../ip/vio_cfg/hdl"
-glbl.v,Verilog,xil_defaultlib,glbl.v
