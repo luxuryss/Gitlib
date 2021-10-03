@@ -1,0 +1,190 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Sep 21 11:23:50 2021
+# Process ID: 16472
+# Current directory: D:/Project/1_prj/net/net_test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9988 D:\Project\1_prj\net\net_test\net_test.xpr
+# Log file: D:/Project/1_prj/net/net_test/vivado.log
+# Journal file: D:/Project/1_prj/net/net_test\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Project/1_prj/net/net_test/net_test.xpr
+INFO: [Project 1-313] Project file moved from 'D:/Software/Vivado/project/NET/net_test' since last save.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/sig_pulse.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_pulse.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/cfg_reg.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/cfg_reg.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/sig_sync.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_sync.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/SIM/sim_clk_rst.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/SIM/sim_clk_rst.v' instead.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/sig_pulse.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_pulse.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/cfg_reg.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/cfg_reg.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/sig_sync.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_sync.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/sig_pulse.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_pulse.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/cfg_reg.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/cfg_reg.v' instead.
+WARNING: [Project 1-312] File not found as 'D:/Project/1_prj/DESIGN/SRC/BASE/sig_sync.v'; using path 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_sync.v' instead.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Software/Vivado/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:28 ; elapsed = 00:00:15 . Memory (MB): peak = 815.648 ; gain = 200.480
+update_compile_order -fileset sources_1
+update_files -from_files D:/Project/2_src/base/sig_sync.v -to_files D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_sync.v -filesets [get_filesets *]
+INFO: [filemgmt 20-762] Replacing file 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_sync.v' with file 'D:/Project/2_src/base/sig_sync.v'.
+update_files -from_files D:/Project/2_src/base/cfg_reg.v -to_files D:/Software/Vivado/project/DESIGN/SRC/BASE/cfg_reg.v -filesets [get_filesets *]
+INFO: [filemgmt 20-762] Replacing file 'D:/Software/Vivado/project/DESIGN/SRC/BASE/cfg_reg.v' with file 'D:/Project/2_src/base/cfg_reg.v'.
+update_files -from_files D:/Project/2_src/base/sig_pulse.v -to_files D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_pulse.v -filesets [get_filesets *]
+INFO: [filemgmt 20-762] Replacing file 'D:/Software/Vivado/project/DESIGN/SRC/BASE/sig_pulse.v' with file 'D:/Project/2_src/base/sig_pulse.v'.
+close_project
+create_project test D:/Project/1_prj/test/test -part xc7k325tffg900-2
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Software/Vivado/Vivado/2018.3/data/ip'.
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 1015.113 ; gain = 1.246
+set_property coreContainer.enable 1 [current_project]
+file mkdir D:/Project/1_prj/test/test/test.srcs/sources_1/new
+close [ open D:/Project/1_prj/test/test/test.srcs/sources_1/new/test_top.v w ]
+add_files D:/Project/1_prj/test/test/test.srcs/sources_1/new/test_top.v
+update_compile_order -fileset sources_1
+create_ip -name vio -vendor xilinx.com -library ip -version 3.0 -module_name vio_0 -dir d:/Project/1_prj/test/test/test.srcs/sources_1/ip
+INFO: [filemgmt 56-101] Creating core container 'd:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0.xcix' for IP 'vio_0'
+set_property -dict [list CONFIG.C_PROBE_OUT3_INIT_VAL {0x6b6b6b6b} CONFIG.C_PROBE_OUT2_INIT_VAL {0x3c3c3c3c} CONFIG.C_PROBE_OUT1_INIT_VAL {0x4b4b4b4b} CONFIG.C_PROBE_OUT0_INIT_VAL {0x5a5a5a5a} CONFIG.C_PROBE_OUT3_WIDTH {32} CONFIG.C_PROBE_OUT2_WIDTH {32} CONFIG.C_PROBE_OUT1_WIDTH {32} CONFIG.C_PROBE_OUT0_WIDTH {32} CONFIG.C_NUM_PROBE_OUT {4} CONFIG.C_EN_PROBE_IN_ACTIVITY {0} CONFIG.C_NUM_PROBE_IN {0}] [get_ips vio_0]
+generate_target {instantiation_template} [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'vio_0'...
+generate_target all [get_files  d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'vio_0'...
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci]
+launch_runs -jobs 8 vio_0_synth_1
+[Tue Sep 21 12:32:36 2021] Launched vio_0_synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/vio_0_synth_1/runme.log
+export_simulation -of_objects [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci] -directory D:/Project/1_prj/test/test/test.ip_user_files/sim_scripts -ip_user_files_dir D:/Project/1_prj/test/test/test.ip_user_files -ipstatic_source_dir D:/Project/1_prj/test/test/test.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Project/1_prj/test/test/test.cache/compile_simlib/modelsim} {questa=D:/Project/1_prj/test/test/test.cache/compile_simlib/questa} {riviera=D:/Project/1_prj/test/test/test.cache/compile_simlib/riviera} {activehdl=D:/Project/1_prj/test/test/test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name clk_wiz_0 -dir d:/Project/1_prj/test/test/test.srcs/sources_1/ip
+INFO: [filemgmt 56-101] Creating core container 'd:/Project/1_prj/test/test/test.srcs/sources_1/ip/clk_wiz_0.xcix' for IP 'clk_wiz_0'
+set_property -dict [list CONFIG.PRIM_IN_FREQ {125.000} CONFIG.CLKOUT2_USED {true} CONFIG.CLKOUT3_USED {true} CONFIG.CLKOUT4_USED {false} CONFIG.CLKOUT5_USED {false} CONFIG.CLK_OUT1_PORT {clk_100m} CONFIG.CLK_OUT2_PORT {clk_250m} CONFIG.CLK_OUT3_PORT {clk_500m} CONFIG.CLK_OUT4_PORT {clk_400m} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {125.000} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {250.000} CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {500.000} CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {500.000} CONFIG.CLKOUT5_REQUESTED_OUT_FREQ {500.000} CONFIG.CLKIN1_JITTER_PS {80.0} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {8.000} CONFIG.MMCM_CLKIN1_PERIOD {8.000} CONFIG.MMCM_CLKIN2_PERIOD {10.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {8.000} CONFIG.MMCM_CLKOUT1_DIVIDE {4} CONFIG.MMCM_CLKOUT2_DIVIDE {2} CONFIG.MMCM_CLKOUT3_DIVIDE {1} CONFIG.MMCM_CLKOUT4_DIVIDE {1} CONFIG.NUM_OUT_CLKS {3} CONFIG.CLKOUT1_JITTER {119.348} CONFIG.CLKOUT1_PHASE_ERROR {96.948} CONFIG.CLKOUT2_JITTER {104.759} CONFIG.CLKOUT2_PHASE_ERROR {96.948} CONFIG.CLKOUT3_JITTER {92.027} CONFIG.CLKOUT3_PHASE_ERROR {96.948} CONFIG.CLKOUT4_JITTER {84.490} CONFIG.CLKOUT4_PHASE_ERROR {83.589} CONFIG.CLKOUT5_JITTER {92.027} CONFIG.CLKOUT5_PHASE_ERROR {96.948}] [get_ips clk_wiz_0]
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'CLK_OUT4_PORT' from 'clk_out4' to 'clk_400m' has been ignored for IP 'clk_wiz_0'
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'CLKOUT4_REQUESTED_OUT_FREQ' from '100.000' to '500.000' has been ignored for IP 'clk_wiz_0'
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'CLKOUT5_REQUESTED_OUT_FREQ' from '100.000' to '500.000' has been ignored for IP 'clk_wiz_0'
+generate_target {instantiation_template} [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+update_compile_order -fileset sources_1
+generate_target all [get_files  d:/Project/1_prj/test/test/test.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'clk_wiz_0'...
+catch { config_ip_cache -export [get_ips -all clk_wiz_0] }
+export_ip_user_files -of_objects [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] d:/Project/1_prj/test/test/test.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci]
+launch_runs -jobs 8 clk_wiz_0_synth_1
+[Tue Sep 21 12:42:24 2021] Launched clk_wiz_0_synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/clk_wiz_0_synth_1/runme.log
+export_simulation -of_objects [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci] -directory D:/Project/1_prj/test/test/test.ip_user_files/sim_scripts -ip_user_files_dir D:/Project/1_prj/test/test/test.ip_user_files -ipstatic_source_dir D:/Project/1_prj/test/test/test.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Project/1_prj/test/test/test.cache/compile_simlib/modelsim} {questa=D:/Project/1_prj/test/test/test.cache/compile_simlib/questa} {riviera=D:/Project/1_prj/test/test/test.cache/compile_simlib/riviera} {activehdl=D:/Project/1_prj/test/test/test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_files -from_files D:/Project/1_prj/test/test/test.srcs/sources_1/new/test_top.sv -to_files D:/Project/1_prj/test/test/test.srcs/sources_1/new/test_top.v -filesets [get_filesets *]
+INFO: [filemgmt 20-762] Replacing file 'D:/Project/1_prj/test/test/test.srcs/sources_1/new/test_top.v' with file 'D:/Project/1_prj/test/test/test.srcs/sources_1/new/test_top.sv'.
+file mkdir D:/Project/1_prj/test/test/test.srcs/constrs_1
+file mkdir D:/Project/1_prj/test/test/test.srcs/constrs_1/new
+close [ open D:/Project/1_prj/test/test/test.srcs/constrs_1/new/test_top.xdc w ]
+add_files -fileset constrs_1 D:/Project/1_prj/test/test/test.srcs/constrs_1/new/test_top.xdc
+launch_runs impl_1 -jobs 8
+[Tue Sep 21 12:55:19 2021] Launched synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/synth_1/runme.log
+[Tue Sep 21 12:55:19 2021] Launched impl_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/impl_1/runme.log
+reset_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+[Tue Sep 21 12:57:32 2021] Launched synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/synth_1/runme.log
+[Tue Sep 21 12:57:32 2021] Launched impl_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+[Tue Sep 21 13:05:34 2021] Launched synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/synth_1/runme.log
+[Tue Sep 21 13:05:34 2021] Launched impl_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+[Tue Sep 21 13:25:33 2021] Launched synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/synth_1/runme.log
+[Tue Sep 21 13:25:33 2021] Launched impl_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/impl_1/runme.log
+reset_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+[Tue Sep 21 13:27:28 2021] Launched synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/synth_1/runme.log
+[Tue Sep 21 13:27:28 2021] Launched impl_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7k325tffg900-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.283 . Memory (MB): peak = 2616.895 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.285 . Memory (MB): peak = 2616.895 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2616.895 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 6 instances
+
+open_run: Time (s): cpu = 00:00:43 ; elapsed = 00:00:33 . Memory (MB): peak = 2760.625 ; gain = 593.184
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+set_property -dict [list CONFIG.C_PROBE_IN0_WIDTH {32} CONFIG.C_EN_PROBE_IN_ACTIVITY {1} CONFIG.C_NUM_PROBE_IN {1}] [get_ips vio_0]
+generate_target all [get_files  d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'vio_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'vio_0'...
+catch { config_ip_cache -export [get_ips -all vio_0] }
+export_ip_user_files -of_objects [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci] -no_script -sync -force -quiet
+reset_run vio_0_synth_1
+launch_runs -jobs 8 vio_0_synth_1
+[Tue Sep 21 13:53:39 2021] Launched vio_0_synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/vio_0_synth_1/runme.log
+export_simulation -of_objects [get_files d:/Project/1_prj/test/test/test.srcs/sources_1/ip/vio_0/vio_0.xci] -directory D:/Project/1_prj/test/test/test.ip_user_files/sim_scripts -ip_user_files_dir D:/Project/1_prj/test/test/test.ip_user_files -ipstatic_source_dir D:/Project/1_prj/test/test/test.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Project/1_prj/test/test/test.cache/compile_simlib/modelsim} {questa=D:/Project/1_prj/test/test/test.cache/compile_simlib/questa} {riviera=D:/Project/1_prj/test/test/test.cache/compile_simlib/riviera} {activehdl=D:/Project/1_prj/test/test/test.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+[Tue Sep 21 13:54:46 2021] Launched synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/synth_1/runme.log
+[Tue Sep 21 13:54:46 2021] Launched impl_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/impl_1/runme.log
+set_property file_type SystemVerilog [get_files  D:/Project/1_prj/test/test/test.srcs/sources_1/new/test_top.sv]
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+[Tue Sep 21 14:00:19 2021] Launched synth_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/synth_1/runme.log
+[Tue Sep 21 14:00:19 2021] Launched impl_1...
+Run output will be captured here: D:/Project/1_prj/test/test/test.runs/impl_1/runme.log
+refresh_design
+INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.286 . Memory (MB): peak = 2804.336 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.288 . Memory (MB): peak = 2804.336 ; gain = 0.000
+refresh_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 2804.336 ; gain = 0.000
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 21 16:58:51 2021...

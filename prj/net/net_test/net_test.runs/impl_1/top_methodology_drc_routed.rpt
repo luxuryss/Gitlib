@@ -1,0 +1,291 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Sep 21 13:37:04 2021
+| Host         : LAPTOP-62TT0BEG running 64-bit major release  (build 9200)
+| Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
+| Design       : top
+| Device       : xc7k325tffg900-2
+| Speed File   : -2
+| Design State : Partially Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 50
++-----------+----------+-------------------------------------------------+------------+
+| Rule      | Severity | Description                                     | Violations |
++-----------+----------+-------------------------------------------------+------------+
+| LUTAR-1   | Warning  | LUT drives async reset alert                    | 7          |
+| PDRC-190  | Warning  | Suboptimally placed synchronized register chain | 13         |
+| TIMING-6  | Warning  | No common primary clock between related clocks  | 1          |
+| TIMING-7  | Warning  | No common node between related clocks           | 1          |
+| TIMING-8  | Warning  | No common period between related clocks         | 1          |
+| TIMING-9  | Warning  | Unknown CDC Logic                               | 1          |
+| TIMING-24 | Warning  | Overridden Max delay datapath only              | 26         |
++-----------+----------+-------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#4 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#5 Warning
+LUT drives async reset alert  
+LUT cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[0]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[1]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[2]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[3]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_tx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#6 Warning
+LUT drives async reset alert  
+LUT cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_areset_sync_i/sync1_r[4]_i_1__0, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[0]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[1]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[2]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[3]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/coreclk_reset_rx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#7 Warning
+LUT drives async reset alert  
+LUT cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/dclk_reset_rx_tmp, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/dclk_reset_rx_sync_i/sync1_r_reg[0]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/dclk_reset_rx_sync_i/sync1_r_reg[1]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/dclk_reset_rx_sync_i/sync1_r_reg[2]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/dclk_reset_rx_sync_i/sync1_r_reg[3]/PRE, u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/bd_efdb_0_xpcs_0_local_clock_reset_block/dclk_reset_rx_sync_i/sync1_r_reg[4]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+PDRC-190#1 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[0] in site SLICE_X39Y118 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#2 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[1] in site SLICE_X36Y118 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#3 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[2] in site SLICE_X38Y118 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#4 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[3] in site SLICE_X37Y118 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[3] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#5 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[0] in site SLICE_X39Y120 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#6 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[1] in site SLICE_X38Y121 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#7 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[2] in site SLICE_X37Y120 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#8 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[0] in site SLICE_X37Y125 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#9 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[1] in site SLICE_X36Y126 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#10 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[2] in site SLICE_X37Y127 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#11 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xmac/inst/bd_efdb_0_xmac_0_core/reset_gen/CPU_RESET.sync_cpu_rst/reset_sync0_reg in site SLICE_X104Y278 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xmac/inst/bd_efdb_0_xmac_0_core/reset_gen/CPU_RESET.sync_cpu_rst/reset_sync1_reg is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#12 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xmac/inst/bd_efdb_0_xmac_0_core/reset_gen/sync_rx_rst/reset_sync0_reg in site SLICE_X110Y292 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xmac/inst/bd_efdb_0_xmac_0_core/reset_gen/sync_rx_rst/reset_sync1_reg is not placed in the same (SLICE) site.
+Related violations: <none>
+
+PDRC-190#13 Warning
+Suboptimally placed synchronized register chain  
+The FDRE cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xmac/inst/bd_efdb_0_xmac_0_core/reset_gen/sync_tx_rst/reset_sync0_reg in site SLICE_X102Y282 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xmac/inst/bd_efdb_0_xmac_0_core/reset_gen/sync_tx_rst/reset_sync1_reg is not placed in the same (SLICE) site.
+Related violations: <none>
+
+TIMING-6#1 Warning
+No common primary clock between related clocks  
+The clocks clk_156p25m_p and u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_10gbaser_i/gtxe2_i/TXOUTCLK are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_156p25m_p] -to [get_clocks u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_10gbaser_i/gtxe2_i/TXOUTCLK]
+Related violations: <none>
+
+TIMING-7#1 Warning
+No common node between related clocks  
+The clocks clk_156p25m_p and u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_10gbaser_i/gtxe2_i/TXOUTCLK are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_156p25m_p] -to [get_clocks u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_10gbaser_i/gtxe2_i/TXOUTCLK]
+Related violations: <none>
+
+TIMING-8#1 Warning
+No common period between related clocks  
+The clocks clk_156p25m_p and u_eth_wrap/fifo_block_i/support_layer_i/ethernet_core_i/inst/xpcs/inst/gt0_gtwizard_10gbaser_multi_gt_i/gt0_gtwizard_10gbaser_i/gtxe2_i/TXOUTCLK are found related (timed together) but have no common (expandable) period
+Related violations: <none>
+
+TIMING-9#1 Warning
+Unknown CDC Logic  
+One or more asynchronous Clock Domain Crossing has been detected between 2 clock domains through a set_false_path or a set_clock_groups or set_max_delay -datapath_only constraint but no double-registers logic synchronizer has been found on the side of the capture clock. It is recommended to run report_cdc for a complete and detailed CDC coverage. Please consider using XPM_CDC to avoid Critical severities
+Related violations: <none>
+
+TIMING-24#1 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 18). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#2 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 19). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#3 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 21). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#4 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 22). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#5 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 23). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#6 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 24). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#7 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 25). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#8 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 26). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#9 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 27). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#10 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 28). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#11 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 29). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#12 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 30). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#13 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 31). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#14 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 32). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#15 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 33). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#16 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 34). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#17 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 35). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#18 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 36). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#19 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 37). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#20 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 38). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#21 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 39). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#22 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 40). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#23 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 41). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#24 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_125m and clk_156p25m_p overrides a set_max_delay -datapath_only (position 84). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#25 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_156p25m_p and clk_125m overrides a set_max_delay -datapath_only (position 103). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+TIMING-24#26 Warning
+Overridden Max delay datapath only  
+A set_clock_groups or a set_false path (see constraint position 99 in the Timing Constraints window in Vivado IDE) between clocks clk_156p25m_p and clk_125m overrides a set_max_delay -datapath_only (position 84). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+Related violations: <none>
+
+

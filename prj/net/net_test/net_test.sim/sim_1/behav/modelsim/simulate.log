@@ -1,0 +1,510 @@
+# //  ModelSim SE-64 10.6d Feb 24 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do {test_top_simulate.do}
+# vsim -voptargs=""+acc"" -L ten_gig_eth_mac_v15_1_6 -L xil_defaultlib -L ten_gig_eth_pcs_pma_v6_0_14 -L xlconstant_v1_1_5 -L unisims_ver -L unimacro_ver -L secureip -L xpm -lib xil_defaultlib xil_defaultlib.test_top xil_defaultlib.glbl 
+# Start time: 20:54:12 on Sep 15,2021
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi_10g_ethernet_0_axi_fifo(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi_10g_ethernet_0_axi_fifo(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "eth_fsm(fast)".
+# ** Warning: D:/Software/Vivado/project/NET/net_test/net_test.ip_user_files/ip/axi_10g_ethernet_0/bd_0/sim/bd_efdb_0.v(296): (vopt-2685) [TFMPC] - Too few port connections for 'xmac'.  Expected 52, found 51.
+# ** Warning: D:/Software/Vivado/project/NET/net_test/net_test.ip_user_files/ip/axi_10g_ethernet_0/bd_0/sim/bd_efdb_0.v(296): (vopt-2718) [TFMPC] - Missing connection for port 'mdio_tri'.
+# ** Warning: D:/Software/Vivado/project/NET/net_test/net_test.ip_user_files/ip/axi_10g_ethernet_0/bd_0/sim/bd_efdb_0.v(348): (vopt-2685) [TFMPC] - Too few port connections for 'xpcs'.  Expected 50, found 49.
+# ** Warning: D:/Software/Vivado/project/NET/net_test/net_test.ip_user_files/ip/axi_10g_ethernet_0/bd_0/sim/bd_efdb_0.v(348): (vopt-2718) [TFMPC] - Missing connection for port 'mdio_tri'.
+# ** Warning: ../../../../net_test.srcs/sources_1/new/top.v(127): (vopt-2685) [TFMPC] - Too few port connections for 'u_eth_wrap'.  Expected 31, found 30.
+# ** Warning: ../../../../net_test.srcs/sources_1/new/top.v(127): (vopt-2718) [TFMPC] - Missing connection for port 'tx_axis_tuser'.
+# Loading sv_std.std
+# Loading work.test_top(fast)
+# Loading work.sim_clk_rst(fast)
+# Loading work.top(fast)
+# Loading work.clk_wiz_0(fast)
+# Loading work.clk_wiz_0_clk_wiz(fast)
+# Loading unisims_ver.IBUF(fast)
+# Loading unisims_ver.MMCME2_ADV(fast)
+# Loading unisims_ver.BUFG(fast)
+# Loading work.vio_cfg(fast)
+# Loading work.test_cfg(fast)
+# Loading work.sig_pulse(fast)
+# Loading work.test_axis_data_gen(fast)
+# Loading work.test_axis_tx_gen(fast)
+# Loading work.test_axis_rx_gen(fast)
+# Loading work.eth_wrap(fast)
+# Loading work.eth_ctrl(fast)
+# Loading work.eth_fsm(fast)
+# Loading work.eth_cfg(fast)
+# Loading work.axi_10g_ethernet_0_fifo_block(fast)
+# Loading work.axi_10g_ethernet_0_support(fast)
+# Loading work.axi_10g_ethernet_0_shared_clocking_wrapper(fast)
+# Loading work.axi_10g_ethernet_0_gt_common(fast)
+# Loading unisims_ver.GTXE2_COMMON(fast)
+# Loading work.axi_10g_ethernet_0_shared_clock_and_reset(fast)
+# Loading unisims_ver.IBUF(fast__1)
+# Loading unisims_ver.IBUFDS_GTE2(fast)
+# Loading work.axi_10g_ethernet_0_ff_synchronizer_rst2(fast)
+# Loading work.axi_10g_ethernet_0_ff_synchronizer_rst2(fast__1)
+# Loading work.axi_10g_ethernet_0(fast)
+# Loading work.bd_efdb_0(fast)
+# Loading work.bd_efdb_0_dcm_locked_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast)
+# Loading work.bd_efdb_0_pma_pmd_type_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast__1)
+# Loading work.bd_efdb_0_prtad_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast__2)
+# Loading work.bd_efdb_0_xmac_0(fast)
+# Loading work.bd_efdb_0_xmac_0_block(fast)
+# Loading work.bd_efdb_0_xpcs_0(fast)
+# Loading work.bd_efdb_0_xpcs_0_block(fast)
+# Loading work.bd_efdb_0_xpcs_0_local_clock_and_reset(fast)
+# Loading work.bd_efdb_0_xpcs_0_sim_speedup_controller(fast)
+# Loading unisims_ver.LUT1(fast)
+# Loading unisims_ver.LDCE(fast)
+# Loading unisims_ver.BUFH(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast__1)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer(fast)
+# Loading unisims_ver.MUXCY_L(fast)
+# Loading unisims_ver.MUXCY(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast__2)
+# Loading work.bd_efdb_0_xpcs_0_cable_pull_logic(fast)
+# Loading work.bd_efdb_0_xpcs_0_gtwizard_10gbaser_multi_GT(fast)
+# Loading work.bd_efdb_0_xpcs_0_gtwizard_10gbaser_GT(fast)
+# Loading unisims_ver.GTXE2_CHANNEL(fast)
+# Loading work.axi_10g_ethernet_0_xgmac_fifo(fast)
+# Loading work.axi_10g_ethernet_0_axi_fifo(fast)
+# Loading work.axi_10g_ethernet_0_sync_reset(fast)
+# Loading work.axi_10g_ethernet_0_sync_block(fast)
+# Loading work.axi_10g_ethernet_0_fifo_ram(fast)
+# Loading work.axi_10g_ethernet_0_axi_fifo(fast__1)
+# Loading work.glbl(fast)
+# 1
+# 1
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+do D:/Software/Vivado/project/NET/net_test/net_test.sim/sim_1/behav/modelsim/wave.do
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/clk'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 3
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/rstn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 4
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/eth_en'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 5
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/eth_init_done'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 6
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/pcspma_addr'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 7
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_busy'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 8
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_resp'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 9
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_wr_en'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 10
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_wr_addr'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 11
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_wr_data'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 12
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_rd_en'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 13
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_rd_addr'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 14
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_rd_vld'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 15
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_rd_data'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 16
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/sim_speedup_control'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 17
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_en'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 18
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_busy_rising'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 19
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_busy_falling'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 20
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_en_rising'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 21
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_en_falling'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 22
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/state'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 23
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/next_state'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 24
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/cfg_cnt'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 25
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_en'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 26
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_rdy_rising'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 27
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_rdy_falling'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 28
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_rd_done'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 29
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_wr_done'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 30
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/clk_div'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 31
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/recv_rst'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 32
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/recv_en'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 33
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/trans_rst'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 34
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/trans_en'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 35
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_port_addr'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 36
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_dev_addr'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 37
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_op'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 38
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/u_eth_ctrl/u_eth_fsm/mdio_rdy'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 39
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/refclk_p'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 41
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/refclk_n'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 42
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/dclk'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 43
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/reset'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 44
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/resetdone_out'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 45
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/qplllock_out'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 46
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/coreclk_out'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 47
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rxrecclk_out'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 48
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_aclk'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 49
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_aresetn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 50
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_awaddr'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 51
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_awvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 52
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_awready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 53
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_wdata'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 54
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_wvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 55
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_wready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 56
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_bresp'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 57
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_bvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 58
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_bready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 59
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_araddr'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 60
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_arvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 61
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_arready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 62
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_rdata'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 63
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_rresp'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 64
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_rvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 65
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/s_axi_rready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 66
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/xgmacint'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 67
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_ifg_delay'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 68
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_statistics_vector'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 69
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_statistics_vector'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 70
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_statistics_valid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 71
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_statistics_valid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 72
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_mac_aresetn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 73
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_aresetn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 74
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tdata'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 75
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tkeep'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 76
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 77
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tlast'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 78
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 79
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_mac_aresetn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 80
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_aresetn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 81
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tdata'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 82
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tkeep'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 83
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 84
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tlast'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 85
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 86
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/pause_val'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 87
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/pause_req'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 88
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/txp'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 89
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/txn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 90
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rxp'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 91
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rxn'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 92
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/signal_detect'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 93
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/sim_speedup_control'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 94
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_fault'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 95
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/pcspma_status'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 96
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_mac_aresetn_i'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 97
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_aresetn_i'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 98
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_mac_aresetn_i'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 99
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_aresetn_i'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 100
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_mac_tdata'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 101
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_mac_tkeep'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 102
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_mac_tvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 103
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_mac_tlast'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 104
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_axis_mac_tready'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 105
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_mac_tdata'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 106
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_mac_tkeep'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 107
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_mac_tvalid'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 108
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_mac_tuser'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 109
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/rx_axis_mac_tlast'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 110
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/coreclk'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 111
+# ** Error: (vish-4014) No objects found matching '/test_top/u_eth_wrap/fifo_block_i/tx_disable'.
+# Executing ONERROR command at macro D:\Software\Vivado\project\NET\net_test\net_test.sim\sim_1\behav\modelsim\wave.do line 112
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_aclk
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_aresetn
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_awaddr
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_awvalid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_awready
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_wdata
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_wvalid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_wready
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_bresp
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_bvalid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_bready
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_araddr
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_arvalid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_arready
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_rdata
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_rresp
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_rvalid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/s_axi_rready
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/xgmacint
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_ifg_delay
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_statistics_vector
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_statistics_vector
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_statistics_valid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_statistics_valid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_axis_mac_aresetn
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_aresetn
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tdata
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tkeep
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tvalid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tlast
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/tx_axis_fifo_tready
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_axis_mac_aresetn
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_aresetn
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tdata
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tkeep
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tvalid
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tlast
+add wave -position end  sim:/test_top/u_top/u_eth_wrap/fifo_block_i/rx_axis_fifo_tready
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf D:/Software/Vivado/project/NET/net_test/net_test.sim/sim_1/behav/modelsim/wave.do
+run
+add wave -position 30  sim:/test_top/u_top/u_test_axis_data_gen/u_test_axis_tx_gen/src_addr
+add wave -position 31  sim:/test_top/u_top/u_test_axis_data_gen/u_test_axis_tx_gen/dst_addr
+add wave -position 32  sim:/test_top/u_top/u_test_axis_data_gen/u_test_axis_tx_gen/tx_size
+vlog -work xil_defaultlib +incdir+../../../../net_test.srcs/sources_1/ip/clk_wiz_0 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact D:/Software/Vivado/project/NET/net_test/net_test.srcs/sources_1/new/test_axis_tx_gen.v
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 20:59:53 on Sep 15,2021
+# vlog -reportprogress 300 -work xil_defaultlib "+incdir+../../../../net_test.srcs/sources_1/ip/clk_wiz_0" -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact D:/Software/Vivado/project/NET/net_test/net_test.srcs/sources_1/new/test_axis_tx_gen.v 
+# -- Compiling module test_axis_tx_gen
+# 
+# Top level modules:
+# 	test_axis_tx_gen
+# End time: 20:59:53 on Sep 15,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.test_top(fast)
+# Loading work.sim_clk_rst(fast)
+# Loading work.top(fast)
+# Loading work.clk_wiz_0(fast)
+# Loading work.clk_wiz_0_clk_wiz(fast)
+# Loading unisims_ver.IBUF(fast)
+# Loading unisims_ver.MMCME2_ADV(fast)
+# Loading unisims_ver.BUFG(fast)
+# Loading work.vio_cfg(fast)
+# Loading work.test_cfg(fast)
+# Loading work.sig_pulse(fast)
+# Loading work.test_axis_data_gen(fast)
+# Loading work.test_axis_tx_gen(fast)
+# Loading work.test_axis_rx_gen(fast)
+# Loading work.eth_wrap(fast)
+# Loading work.eth_ctrl(fast)
+# Loading work.eth_fsm(fast)
+# Loading work.eth_cfg(fast)
+# Loading work.axi_10g_ethernet_0_fifo_block(fast)
+# Loading work.axi_10g_ethernet_0_support(fast)
+# Loading work.axi_10g_ethernet_0_shared_clocking_wrapper(fast)
+# Loading work.axi_10g_ethernet_0_gt_common(fast)
+# Loading unisims_ver.GTXE2_COMMON(fast)
+# Loading work.axi_10g_ethernet_0_shared_clock_and_reset(fast)
+# Loading unisims_ver.IBUF(fast__1)
+# Loading unisims_ver.IBUFDS_GTE2(fast)
+# Loading work.axi_10g_ethernet_0_ff_synchronizer_rst2(fast)
+# Loading work.axi_10g_ethernet_0_ff_synchronizer_rst2(fast__1)
+# Loading work.axi_10g_ethernet_0(fast)
+# Loading work.bd_efdb_0(fast)
+# Loading work.bd_efdb_0_dcm_locked_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast)
+# Loading work.bd_efdb_0_pma_pmd_type_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast__1)
+# Loading work.bd_efdb_0_prtad_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast__2)
+# Loading work.bd_efdb_0_xmac_0(fast)
+# Loading work.bd_efdb_0_xmac_0_block(fast)
+# Loading work.bd_efdb_0_xpcs_0(fast)
+# Loading work.bd_efdb_0_xpcs_0_block(fast)
+# Loading work.bd_efdb_0_xpcs_0_local_clock_and_reset(fast)
+# Loading work.bd_efdb_0_xpcs_0_sim_speedup_controller(fast)
+# Loading unisims_ver.LUT1(fast)
+# Loading unisims_ver.LDCE(fast)
+# Loading unisims_ver.BUFH(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast__1)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer(fast)
+# Loading unisims_ver.MUXCY_L(fast)
+# Loading unisims_ver.MUXCY(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast__2)
+# Loading work.bd_efdb_0_xpcs_0_cable_pull_logic(fast)
+# Loading work.bd_efdb_0_xpcs_0_gtwizard_10gbaser_multi_GT(fast)
+# Loading work.bd_efdb_0_xpcs_0_gtwizard_10gbaser_GT(fast)
+# Loading unisims_ver.GTXE2_CHANNEL(fast)
+# Loading work.axi_10g_ethernet_0_xgmac_fifo(fast)
+# Loading work.axi_10g_ethernet_0_axi_fifo(fast)
+# Loading work.axi_10g_ethernet_0_sync_reset(fast)
+# Loading work.axi_10g_ethernet_0_sync_block(fast)
+# Loading work.axi_10g_ethernet_0_fifo_ram(fast)
+# Loading work.axi_10g_ethernet_0_axi_fifo(fast__1)
+# Loading work.glbl(fast)
+run
+vlog -work xil_defaultlib +incdir+../../../../net_test.srcs/sources_1/ip/clk_wiz_0 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact D:/Software/Vivado/project/NET/net_test/net_test.srcs/sources_1/new/test_axis_tx_gen.v
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 21:04:29 on Sep 15,2021
+# vlog -reportprogress 300 -work xil_defaultlib "+incdir+../../../../net_test.srcs/sources_1/ip/clk_wiz_0" -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact D:/Software/Vivado/project/NET/net_test/net_test.srcs/sources_1/new/test_axis_tx_gen.v 
+# -- Compiling module test_axis_tx_gen
+# 
+# Top level modules:
+# 	test_axis_tx_gen
+# End time: 21:04:29 on Sep 15,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.test_top(fast)
+# Loading work.sim_clk_rst(fast)
+# Loading work.top(fast)
+# Loading work.clk_wiz_0(fast)
+# Loading work.clk_wiz_0_clk_wiz(fast)
+# Loading unisims_ver.IBUF(fast)
+# Loading unisims_ver.MMCME2_ADV(fast)
+# Loading unisims_ver.BUFG(fast)
+# Loading work.vio_cfg(fast)
+# Loading work.test_cfg(fast)
+# Loading work.sig_pulse(fast)
+# Loading work.test_axis_data_gen(fast)
+# Loading work.test_axis_tx_gen(fast)
+# Loading work.test_axis_rx_gen(fast)
+# Loading work.eth_wrap(fast)
+# Loading work.eth_ctrl(fast)
+# Loading work.eth_fsm(fast)
+# Loading work.eth_cfg(fast)
+# Loading work.axi_10g_ethernet_0_fifo_block(fast)
+# Loading work.axi_10g_ethernet_0_support(fast)
+# Loading work.axi_10g_ethernet_0_shared_clocking_wrapper(fast)
+# Loading work.axi_10g_ethernet_0_gt_common(fast)
+# Loading unisims_ver.GTXE2_COMMON(fast)
+# Loading work.axi_10g_ethernet_0_shared_clock_and_reset(fast)
+# Loading unisims_ver.IBUF(fast__1)
+# Loading unisims_ver.IBUFDS_GTE2(fast)
+# Loading work.axi_10g_ethernet_0_ff_synchronizer_rst2(fast)
+# Loading work.axi_10g_ethernet_0_ff_synchronizer_rst2(fast__1)
+# Loading work.axi_10g_ethernet_0(fast)
+# Loading work.bd_efdb_0(fast)
+# Loading work.bd_efdb_0_dcm_locked_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast)
+# Loading work.bd_efdb_0_pma_pmd_type_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast__1)
+# Loading work.bd_efdb_0_prtad_driver_0(fast)
+# Loading xlconstant_v1_1_5.xlconstant_v1_1_5_xlconstant(fast__2)
+# Loading work.bd_efdb_0_xmac_0(fast)
+# Loading work.bd_efdb_0_xmac_0_block(fast)
+# Loading work.bd_efdb_0_xpcs_0(fast)
+# Loading work.bd_efdb_0_xpcs_0_block(fast)
+# Loading work.bd_efdb_0_xpcs_0_local_clock_and_reset(fast)
+# Loading work.bd_efdb_0_xpcs_0_sim_speedup_controller(fast)
+# Loading unisims_ver.LUT1(fast)
+# Loading unisims_ver.LDCE(fast)
+# Loading unisims_ver.BUFH(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast__1)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer(fast)
+# Loading unisims_ver.MUXCY_L(fast)
+# Loading unisims_ver.MUXCY(fast)
+# Loading work.bd_efdb_0_xpcs_0_ff_synchronizer_rst(fast__2)
+# Loading work.bd_efdb_0_xpcs_0_cable_pull_logic(fast)
+# Loading work.bd_efdb_0_xpcs_0_gtwizard_10gbaser_multi_GT(fast)
+# Loading work.bd_efdb_0_xpcs_0_gtwizard_10gbaser_GT(fast)
+# Loading unisims_ver.GTXE2_CHANNEL(fast)
+# Loading work.axi_10g_ethernet_0_xgmac_fifo(fast)
+# Loading work.axi_10g_ethernet_0_axi_fifo(fast)
+# Loading work.axi_10g_ethernet_0_sync_reset(fast)
+# Loading work.axi_10g_ethernet_0_sync_block(fast)
+# Loading work.axi_10g_ethernet_0_fifo_ram(fast)
+# Loading work.axi_10g_ethernet_0_axi_fifo(fast__1)
+# Loading work.glbl(fast)
+run
+# End time: 21:42:07 on Sep 15,2021, Elapsed time: 0:47:55
+# Errors: 327, Warnings: 0
