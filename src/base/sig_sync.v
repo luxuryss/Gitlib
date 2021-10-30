@@ -19,21 +19,21 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module sig_sync #(
-    parameter                   WIDTH   = 1 ,
-    parameter                   DEPTH   = 1
+    parameter                               WIDTH   = 1 ,
+    parameter                               DEPTH   = 1
 )(
-    input                       clk         ,
-    input                       rstn        ,
-    input                       sig_in_vld  ,
-    input   [WIDTH-1 : 0]       sig_in      ,
-    output                      sig_out_vld ,
-    output  [WIDTH-1 : 0]       sig_out
+    input                                   clk         ,
+    input                                   rstn        ,
+    input                                   sig_in_vld  ,
+    input       [WIDTH-1 : 0]               sig_in      ,
+    output                                  sig_out_vld ,
+    output      [WIDTH-1 : 0]               sig_out     ,
+    output  reg [DEPTH : 0]                 sig_reg_vld ,
+    output  reg [DEPTH : 0][WIDTH-1 : 0]    sig_reg
     );
 
 // >>>>>>>>>> var
 genvar                          i;
-reg [DEPTH : 0][WIDTH-1 : 0]    sig_reg;
-reg [DEPTH : 0]                 sig_reg_vld;
 
 // >>>>>>>>>> sync
 assign sig_out      = sig_reg[DEPTH];
