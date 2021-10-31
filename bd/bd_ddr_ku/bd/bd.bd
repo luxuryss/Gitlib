@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB3B4F2DC68D3BD3D",
+      "boundary_crc": "0xDF65E37911D13880",
       "device": "xcku040-ffva1156-2-i",
       "name": "bd",
       "synth_flow_mode": "Hierarchical",
@@ -66,7 +66,7 @@
             "value_src": "user_prop"
           },
           "DATA_WIDTH": {
-            "value": "8",
+            "value": "64",
             "value_src": "user_prop"
           },
           "MEMORY_PART": {
@@ -458,13 +458,19 @@
             "value": "1"
           },
           "C0.DDR4_AxiAddressWidth": {
-            "value": "28"
+            "value": "31"
+          },
+          "C0.DDR4_AxiDataWidth": {
+            "value": "512"
           },
           "C0.DDR4_CasLatency": {
             "value": "16"
           },
           "C0.DDR4_CasWriteLatency": {
             "value": "12"
+          },
+          "C0.DDR4_DataWidth": {
+            "value": "64"
           },
           "C0.DDR4_InputClockPeriod": {
             "value": "9996"
@@ -552,16 +558,10 @@
       }
     },
     "interface_nets": {
-      "axi_datamover_0_M_AXI_MM2S": {
+      "diff_clock_rtl_0_1": {
         "interface_ports": [
-          "axi_datamover_0/M_AXI_MM2S",
-          "axi_smc/S00_AXI"
-        ]
-      },
-      "S_AXIS_S2MM_0_1": {
-        "interface_ports": [
-          "S_AXIS_S2MM_0",
-          "axi_datamover_0/S_AXIS_S2MM"
+          "ddr4_clk",
+          "ddr4_0/C0_SYS_CLK"
         ]
       },
       "axi_datamover_0_M_AXIS_MM2S": {
@@ -570,16 +570,16 @@
           "axi_datamover_0/M_AXIS_MM2S"
         ]
       },
-      "diff_clock_rtl_0_1": {
-        "interface_ports": [
-          "ddr4_clk",
-          "ddr4_0/C0_SYS_CLK"
-        ]
-      },
       "axi_smc_M00_AXI": {
         "interface_ports": [
           "axi_smc/M00_AXI",
           "ddr4_0/C0_DDR4_S_AXI"
+        ]
+      },
+      "axi_datamover_0_M_AXI_MM2S": {
+        "interface_ports": [
+          "axi_datamover_0/M_AXI_MM2S",
+          "axi_smc/S00_AXI"
         ]
       },
       "ddr4_0_C0_DDR4": {
@@ -588,10 +588,10 @@
           "ddr4_0/C0_DDR4"
         ]
       },
-      "axi_datamover_0_M_AXIS_MM2S_STS": {
+      "S_AXIS_S2MM_0_1": {
         "interface_ports": [
-          "M_AXIS_MM2S_STS_0",
-          "axi_datamover_0/M_AXIS_MM2S_STS"
+          "S_AXIS_S2MM_0",
+          "axi_datamover_0/S_AXIS_S2MM"
         ]
       },
       "axi_datamover_0_M_AXI_S2MM": {
@@ -616,6 +616,12 @@
         "interface_ports": [
           "S_AXIS_MM2S_CMD_0",
           "axi_datamover_0/S_AXIS_MM2S_CMD"
+        ]
+      },
+      "axi_datamover_0_M_AXIS_MM2S_STS": {
+        "interface_ports": [
+          "M_AXIS_MM2S_STS_0",
+          "axi_datamover_0/M_AXIS_MM2S_STS"
         ]
       }
     },

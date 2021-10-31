@@ -19,7 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module test_axis_rx_gen #(
-    parameter                           AXIS_DATA_WIDTH     = 64
+    parameter                           AXIS_DATA_WIDTH     = 64    ,
+    parameter                           TEST_RX_SIZE        = 1024
 )(
     // >>>>>>>>>> sys
     input                               clk                     ,
@@ -33,9 +34,8 @@ module test_axis_rx_gen #(
     );
 
 // >>>>>>>>>> var
-localparam                          TEST_TX_LEN     = 128+2;
-reg     [AXIS_DATA_WIDTH-1 : 0]     test_data;
-reg     [$clog2(TEST_TX_LEN)-1 : 0] test_rx_cnt;
+reg     [AXIS_DATA_WIDTH-1 : 0]         test_data;
+reg     [$clog2(TEST_RX_SIZE/8)-1 : 0]  test_rx_cnt;
 
 // >>>>>>>>>> axis
 assign rx_axis_tready   = 1'd1;

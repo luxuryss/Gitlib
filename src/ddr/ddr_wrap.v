@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module ddr_top #(
+module ddr_wrap #(
     parameter                           MM2S_DATA_WIDTH = 64,
     parameter                           S2MM_DATA_WIDTH = 64,
     parameter                           MM2S_CMD_WIDTH  = 72,
@@ -45,22 +45,23 @@ module ddr_top #(
     output                              rdata_vld           ,
     output  [MM2S_DATA_WIDTH-1 : 0]     rdata               ,
     // >>>>>>>>>> ddr
-    input                               ddr4_clk_p          ,
     input                               ddr4_clk_n          ,
+    input                               ddr4_clk_p          ,
     output                              ddr4_init_done      ,
     output                              ddr4_rtl_act_n      ,
-    output                              ddr4_rtl_adr        ,
-    output                              ddr4_rtl_ba         ,
+    output  [16 : 0]                    ddr4_rtl_adr        ,
+    output  [1 : 0]                     ddr4_rtl_ba         ,
     output                              ddr4_rtl_bg         ,
     output                              ddr4_rtl_ck_c       ,
     output                              ddr4_rtl_ck_t       ,
     output                              ddr4_rtl_cke        ,
     output                              ddr4_rtl_cs_n       ,
     inout                               ddr4_rtl_dm_n       ,
-    inout                               ddr4_rtl_dq         ,
+    inout   [7 : 0]                     ddr4_rtl_dq         ,
     inout                               ddr4_rtl_dqs_c      ,
     inout                               ddr4_rtl_dqs_t      ,
-    output                              ddr4_rtl_odt
+    output                              ddr4_rtl_odt        ,
+    output                              ddr4_rtl_reset_n
     );
 
 // >>>>>>>>>> var

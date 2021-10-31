@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Oct 23 20:25:48 2021" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 31 10:00:29 2021" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" DEVICE="xcku040" NAME="bd" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -15,14 +15,14 @@
         <CONNECTION INSTANCE="rst_sys_200M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ddr4_clk_clk_n" SIGIS="clk" SIGNAME="ddr4_0_c0_sys_clk_n">
+    <PORT CLKFREQUENCY="200000000" DIR="I" NAME="sys_clk" SIGIS="clk" SIGNAME="External_Ports_sys_clk">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="ddr4_0" PORT="c0_sys_clk_n"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ddr4_clk_clk_p" SIGIS="clk" SIGNAME="ddr4_0_c0_sys_clk_p">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="ddr4_0" PORT="c0_sys_clk_p"/>
+        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axi_mm2s_aclk"/>
+        <CONNECTION INSTANCE="axi_smc" PORT="aclk"/>
+        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axis_mm2s_cmdsts_aclk"/>
+        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axi_s2mm_aclk"/>
+        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axis_s2mm_cmdsts_awclk"/>
+        <CONNECTION INSTANCE="rst_sys_200M" PORT="slowest_sync_clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="63" NAME="S_AXIS_S2MM_0_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_datamover_0_s_axis_s2mm_tdata">
@@ -75,6 +75,16 @@
         <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axis_mm2s_tvalid"/>
       </CONNECTIONS>
     </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ddr4_clk_clk_n" SIGIS="clk" SIGNAME="ddr4_0_c0_sys_clk_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ddr4_0" PORT="c0_sys_clk_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ddr4_clk_clk_p" SIGIS="clk" SIGNAME="ddr4_0_c0_sys_clk_p">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ddr4_0" PORT="c0_sys_clk_p"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="O" NAME="ddr4_rtl_act_n" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_act_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_act_n"/>
@@ -115,22 +125,22 @@
         <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_cs_n"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" LEFT="0" NAME="ddr4_rtl_dm_n" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dm_dbi_n">
+    <PORT DIR="IO" LEFT="7" NAME="ddr4_rtl_dm_n" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dm_dbi_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_dm_dbi_n"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" LEFT="7" NAME="ddr4_rtl_dq" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dq">
+    <PORT DIR="IO" LEFT="63" NAME="ddr4_rtl_dq" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dq">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_dq"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" LEFT="0" NAME="ddr4_rtl_dqs_c" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_c">
+    <PORT DIR="IO" LEFT="7" NAME="ddr4_rtl_dqs_c" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_c">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_dqs_c"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" LEFT="0" NAME="ddr4_rtl_dqs_t" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_t">
+    <PORT DIR="IO" LEFT="7" NAME="ddr4_rtl_dqs_t" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_t">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_dqs_t"/>
       </CONNECTIONS>
@@ -225,16 +235,6 @@
         <CONNECTION INSTANCE="axi_datamover_0" PORT="s_axis_mm2s_cmd_tvalid"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="200000000" DIR="I" NAME="sys_clk" SIGIS="clk" SIGNAME="External_Ports_sys_clk">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axi_mm2s_aclk"/>
-        <CONNECTION INSTANCE="axi_smc" PORT="aclk"/>
-        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axis_mm2s_cmdsts_aclk"/>
-        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axi_s2mm_aclk"/>
-        <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axis_s2mm_cmdsts_awclk"/>
-        <CONNECTION INSTANCE="rst_sys_200M" PORT="slowest_sync_clk"/>
-      </CONNECTIONS>
-    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -246,12 +246,12 @@
         <PORTMAP LOGICAL="CLK_P" PHYSICAL="ddr4_clk_clk_p"/>
       </PORTMAPS>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="ddr4_0_C0_DDR4" DATAWIDTH="8" NAME="ddr4_rtl" TYPE="INITIATOR">
+    <BUSINTERFACE BUSNAME="ddr4_0_C0_DDR4" DATAWIDTH="64" NAME="ddr4_rtl" TYPE="INITIATOR">
       <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
       <PARAMETER NAME="TIMEPERIOD_PS" VALUE="833"/>
       <PARAMETER NAME="MEMORY_TYPE" VALUE="Components"/>
       <PARAMETER NAME="MEMORY_PART" VALUE="MT40A256M16GE-083E"/>
-      <PARAMETER NAME="DATA_WIDTH" VALUE="8"/>
+      <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
       <PARAMETER NAME="CS_ENABLED" VALUE="true"/>
       <PARAMETER NAME="DATA_MASK_ENABLED" VALUE="DM_NO_DBI"/>
       <PARAMETER NAME="SLOT" VALUE="Single"/>
@@ -1090,6 +1090,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="sys_clk"/>
           </CONNECTIONS>
         </PORT>
+        <PORT CLKFREQUENCY="300000000" DIR="I" NAME="aclk1" SIGIS="clk" SIGNAME="ddr4_0_c0_ddr4_ui_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_ui_clk"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="rst_sys_200M_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rst_sys_200M" PORT="peripheral_aresetn"/>
@@ -1266,7 +1271,7 @@
             <CONNECTION INSTANCE="axi_datamover_0" PORT="m_axi_s2mm_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="27" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
+        <PORT DIR="O" LEFT="30" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_awaddr"/>
           </CONNECTIONS>
@@ -1317,12 +1322,12 @@
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="63" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wdata">
+        <PORT DIR="O" LEFT="511" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wstrb">
+        <PORT DIR="O" LEFT="63" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_wstrb"/>
           </CONNECTIONS>
@@ -1357,7 +1362,7 @@
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="27" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
+        <PORT DIR="O" LEFT="30" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_araddr"/>
           </CONNECTIONS>
@@ -1408,7 +1413,7 @@
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="63" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_rdata">
+        <PORT DIR="I" LEFT="511" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_rdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_rdata"/>
           </CONNECTIONS>
@@ -1431,11 +1436,6 @@
         <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_s_axi_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="300000000" DIR="I" NAME="aclk1" SIGIS="clk" SIGNAME="ddr4_0_c0_ddr4_ui_clk">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ddr4_0" PORT="c0_ddr4_ui_clk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1549,12 +1549,12 @@
             <PORTMAP LOGICAL="BREADY" PHYSICAL="S01_AXI_bready"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="64" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
+        <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="512" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+          <PARAMETER NAME="DATA_WIDTH" VALUE="512"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="300000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="28"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="31"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="4"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="4"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
@@ -1573,7 +1573,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="32"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="4"/>
           <PARAMETER NAME="PHASE" VALUE="0.00"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="bd_ddr4_0_0_c0_ddr4_ui_clk"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
@@ -1629,28 +1629,28 @@
         <PARAMETER NAME="C0.ControllerType" VALUE="DDR4_SDRAM"/>
         <PARAMETER NAME="C0.APP_ADDR_WIDTH" VALUE="28"/>
         <PARAMETER NAME="C0.MEM_TYPE" VALUE="DDR4"/>
-        <PARAMETER NAME="C0.BUFG_LOC_1" VALUE="X0Y22"/>
-        <PARAMETER NAME="C0.BUFG_LOC_2" VALUE="X0Y3"/>
-        <PARAMETER NAME="C0.BUFG_DIV_LOC_1" VALUE="X0Y3"/>
-        <PARAMETER NAME="C0.BUFG_DIV_LOC_2" VALUE="X0Y2"/>
+        <PARAMETER NAME="C0.BUFG_LOC_1" VALUE="X0Y46"/>
+        <PARAMETER NAME="C0.BUFG_LOC_2" VALUE="X0Y7"/>
+        <PARAMETER NAME="C0.BUFG_DIV_LOC_1" VALUE="X0Y7"/>
+        <PARAMETER NAME="C0.BUFG_DIV_LOC_2" VALUE="X0Y6"/>
         <PARAMETER NAME="C0.PBLOCK_SLICE_LOC" VALUE="0"/>
         <PARAMETER NAME="C0.PBLOCK_RAMB36_LOC" VALUE="0"/>
         <PARAMETER NAME="C0.PBLOCK_RAMB18_LOC" VALUE="0"/>
         <PARAMETER NAME="C0.PBLOCK_SLICE_LOC_SC" VALUE="0"/>
         <PARAMETER NAME="C0.PBLOCK_RAMB36_LOC_SC" VALUE="0"/>
         <PARAMETER NAME="C0.PBLOCK_RAMB18_LOC_SC" VALUE="0"/>
-        <PARAMETER NAME="C0.MMCM_IDX_BANK" VALUE="0"/>
+        <PARAMETER NAME="C0.MMCM_IDX_BANK" VALUE="1"/>
         <PARAMETER NAME="C0.CENTER_BANK_CLOCK_REGION" VALUE="0"/>
         <PARAMETER NAME="C0.CENTER_BANK_MMCME3_ADV_SITE" VALUE="0"/>
-        <PARAMETER NAME="C0.SYSCLK_CENTER_INFO" VALUE="TRUE"/>
+        <PARAMETER NAME="C0.SYSCLK_CENTER_INFO" VALUE="FALSE"/>
         <PARAMETER NAME="PING_PONG_PHY" VALUE="1"/>
         <PARAMETER NAME="C0.DDR4_CS_ADDR" VALUE="28"/>
         <PARAMETER NAME="C0.DDR4_VrefVoltage" VALUE="0.84"/>
         <PARAMETER NAME="C0.DDR4_AL" VALUE="0"/>
-        <PARAMETER NAME="C0.DDR4_DQ_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C0.DDR4_DQ_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C0.DDR4_nCK_PER_CLK" VALUE="4"/>
-        <PARAMETER NAME="C0.DDR4_DM_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C0.DDR4_DQS_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C0.DDR4_DM_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C0.DDR4_DQS_WIDTH" VALUE="8"/>
         <PARAMETER NAME="C0.DDR4_nCS_PER_RANK" VALUE="1"/>
         <PARAMETER NAME="C0.DDR4_MEM_DEVICE_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C0.DDR4_USE_DM_PORT" VALUE="1"/>
@@ -1666,7 +1666,7 @@
         <PARAMETER NAME="C0.DDR4_ODT_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C0.DDR4_MEMORY_TYPE" VALUE="Components"/>
         <PARAMETER NAME="C0.DDR4_MEMORY_PART" VALUE="MT40A256M16GE-083E"/>
-        <PARAMETER NAME="C0.DDR4_DATA_MASK" VALUE="1"/>
+        <PARAMETER NAME="C0.DDR4_DATA_MASK" VALUE="8"/>
         <PARAMETER NAME="C0.DDR4_COLUMN_WIDTH" VALUE="10"/>
         <PARAMETER NAME="C0.DDR4_SPEED_GRADE" VALUE="083E"/>
         <PARAMETER NAME="C0.DDR4_MEM_DENSITY" VALUE="4Gb"/>
@@ -1729,17 +1729,17 @@
         <PARAMETER NAME="C0.DDR4_DCI_CASCADE_CUTOFF" VALUE="938"/>
         <PARAMETER NAME="C0.DDR4_IS_FASTER_SPEED_RAM" VALUE="No"/>
         <PARAMETER NAME="C0.DDR4_AXI_ID_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C0.DDR4_AXI_ADDR_WIDTH" VALUE="28"/>
-        <PARAMETER NAME="C0.DDR4_AXI_DATA_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="C0.DDR4_MEM_SIZE" VALUE="268435456"/>
+        <PARAMETER NAME="C0.DDR4_AXI_ADDR_WIDTH" VALUE="31"/>
+        <PARAMETER NAME="C0.DDR4_AXI_DATA_WIDTH" VALUE="512"/>
+        <PARAMETER NAME="C0.DDR4_MEM_SIZE" VALUE="2147483648"/>
         <PARAMETER NAME="C0.DDR4_UI_CLOCK" VALUE="300000000"/>
         <PARAMETER NAME="C0.DDR4_CA_MIRROR" VALUE="0"/>
         <PARAMETER NAME="C0.DDR4_IS_CUSTOM" VALUE="false"/>
         <PARAMETER NAME="C0.DDR4_AUTO_AP_COL_A3" VALUE="0"/>
         <PARAMETER NAME="C0.DDR4_MCS_ECC" VALUE="0"/>
         <PARAMETER NAME="C0.DDR4_Slot" VALUE="1"/>
-        <PARAMETER NAME="C0.APP_DATA_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="C0.APP_MASK_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C0.APP_DATA_WIDTH" VALUE="512"/>
+        <PARAMETER NAME="C0.APP_MASK_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C0.DDR4_StackHeight" VALUE="1"/>
         <PARAMETER NAME="CUSTOM_PART_ATTRIBUTES" VALUE="NONE"/>
         <PARAMETER NAME="M_ADDN_UI_CLKOUT1_FREQ_HZ" VALUE="0.0"/>
@@ -1782,7 +1782,7 @@
         <PARAMETER NAME="C0.DDR4_MemoryType" VALUE="Components"/>
         <PARAMETER NAME="C0.DDR4_MemoryPart" VALUE="MT40A256M16GE-083E"/>
         <PARAMETER NAME="C0.DDR4_MemoryVoltage" VALUE="1.2V"/>
-        <PARAMETER NAME="C0.DDR4_DataWidth" VALUE="8"/>
+        <PARAMETER NAME="C0.DDR4_DataWidth" VALUE="64"/>
         <PARAMETER NAME="C0.DDR4_DataMask" VALUE="DM_NO_DBI"/>
         <PARAMETER NAME="C0.DDR4_Ecc" VALUE="false"/>
         <PARAMETER NAME="C0.DDR4_AxiSelection" VALUE="true"/>
@@ -1795,10 +1795,10 @@
         <PARAMETER NAME="C0.DDR4_CasWriteLatency" VALUE="12"/>
         <PARAMETER NAME="C0.DDR4_ChipSelect" VALUE="true"/>
         <PARAMETER NAME="C0.DDR4_isCKEShared" VALUE="false"/>
-        <PARAMETER NAME="C0.DDR4_AxiDataWidth" VALUE="64"/>
+        <PARAMETER NAME="C0.DDR4_AxiDataWidth" VALUE="512"/>
         <PARAMETER NAME="C0.DDR4_AxiArbitrationScheme" VALUE="RD_PRI_REG"/>
         <PARAMETER NAME="C0.DDR4_AxiNarrowBurst" VALUE="false"/>
-        <PARAMETER NAME="C0.DDR4_AxiAddressWidth" VALUE="28"/>
+        <PARAMETER NAME="C0.DDR4_AxiAddressWidth" VALUE="31"/>
         <PARAMETER NAME="C0.DDR4_AxiIDWidth" VALUE="1"/>
         <PARAMETER NAME="C0.DDR4_Capacity" VALUE="512"/>
         <PARAMETER NAME="C0.DDR4_Mem_Add_Map" VALUE="ROW_COLUMN_BANK"/>
@@ -1923,22 +1923,22 @@
             <CONNECTION INSTANCE="bd_imp" PORT="ddr4_rtl_cs_n"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="IO" LEFT="0" NAME="c0_ddr4_dm_dbi_n" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dm_dbi_n">
+        <PORT DIR="IO" LEFT="7" NAME="c0_ddr4_dm_dbi_n" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dm_dbi_n">
           <CONNECTIONS>
             <CONNECTION INSTANCE="bd_imp" PORT="ddr4_rtl_dm_n"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="IO" LEFT="7" NAME="c0_ddr4_dq" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dq">
+        <PORT DIR="IO" LEFT="63" NAME="c0_ddr4_dq" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dq">
           <CONNECTIONS>
             <CONNECTION INSTANCE="bd_imp" PORT="ddr4_rtl_dq"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="IO" LEFT="0" NAME="c0_ddr4_dqs_c" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_c">
+        <PORT DIR="IO" LEFT="7" NAME="c0_ddr4_dqs_c" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_c">
           <CONNECTIONS>
             <CONNECTION INSTANCE="bd_imp" PORT="ddr4_rtl_dqs_c"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="IO" LEFT="0" NAME="c0_ddr4_dqs_t" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_t">
+        <PORT DIR="IO" LEFT="7" NAME="c0_ddr4_dqs_t" RIGHT="0" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_dqs_t">
           <CONNECTIONS>
             <CONNECTION INSTANCE="bd_imp" PORT="ddr4_rtl_dqs_t"/>
           </CONNECTIONS>
@@ -1990,7 +1990,7 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="c0_ddr4_s_axi_awid" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="27" NAME="c0_ddr4_s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
+        <PORT DIR="I" LEFT="30" NAME="c0_ddr4_s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
@@ -2040,12 +2040,12 @@
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="63" NAME="c0_ddr4_s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wdata">
+        <PORT DIR="I" LEFT="511" NAME="c0_ddr4_s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="c0_ddr4_s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wstrb">
+        <PORT DIR="I" LEFT="63" NAME="c0_ddr4_s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_wstrb">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_wstrb"/>
           </CONNECTIONS>
@@ -2082,7 +2082,7 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="c0_ddr4_s_axi_arid" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="27" NAME="c0_ddr4_s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
+        <PORT DIR="I" LEFT="30" NAME="c0_ddr4_s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
@@ -2153,7 +2153,7 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="c0_ddr4_s_axi_rid" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="63" NAME="c0_ddr4_s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_rdata">
+        <PORT DIR="O" LEFT="511" NAME="c0_ddr4_s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_rdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_rdata"/>
           </CONNECTIONS>
@@ -2173,12 +2173,12 @@
             <PORTMAP LOGICAL="CLK_P" PHYSICAL="c0_sys_clk_p"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="ddr4_0_C0_DDR4" DATAWIDTH="8" NAME="C0_DDR4" TYPE="INITIATOR" VLNV="xilinx.com:interface:ddr4:1.0">
+        <BUSINTERFACE BUSNAME="ddr4_0_C0_DDR4" DATAWIDTH="64" NAME="C0_DDR4" TYPE="INITIATOR" VLNV="xilinx.com:interface:ddr4:1.0">
           <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
           <PARAMETER NAME="TIMEPERIOD_PS" VALUE="833"/>
           <PARAMETER NAME="MEMORY_TYPE" VALUE="Components"/>
           <PARAMETER NAME="MEMORY_PART" VALUE="MT40A256M16GE-083E"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="8"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
           <PARAMETER NAME="CS_ENABLED" VALUE="true"/>
           <PARAMETER NAME="DATA_MASK_ENABLED" VALUE="DM_NO_DBI"/>
           <PARAMETER NAME="SLOT" VALUE="Single"/>
@@ -2205,12 +2205,12 @@
             <PORTMAP LOGICAL="RESET_N" PHYSICAL="c0_ddr4_reset_n"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="64" NAME="C0_DDR4_S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="512" NAME="C0_DDR4_S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="FREQ_HZ" VALUE="300000000"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="512"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="1"/>
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="28"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="31"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
@@ -2229,7 +2229,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="32"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="4"/>
           <PARAMETER NAME="PHASE" VALUE="0.00"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="bd_ddr4_0_0_c0_ddr4_ui_clk"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>

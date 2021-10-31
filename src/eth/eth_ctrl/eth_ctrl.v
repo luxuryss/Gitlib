@@ -29,6 +29,7 @@ module eth_ctrl #(
     input                               s_axi_aresetn           ,
     // >>>>>>>>>> usr_cfg
     input                               eth_en                  ,
+    output                              eth_rst_done            ,
     output                              eth_init_done           ,
     input                               usr_cfg_type            ,
     input                               usr_wr_en               ,
@@ -82,6 +83,7 @@ u_eth_fsm (
     .clk                    (s_axi_aclk             ),
     .rstn                   (s_axi_aresetn          ),
     .eth_en                 (eth_en                 ),
+    .eth_rst_done           (eth_rst_done           ),
     .eth_init_done          (eth_init_done          ),
     .usr_cfg_type           (usr_cfg_type           ),
     .usr_wr_en              (usr_wr_en              ),

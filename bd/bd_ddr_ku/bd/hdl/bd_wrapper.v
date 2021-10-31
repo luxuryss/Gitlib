@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sat Oct 23 20:25:36 2021
+//Date        : Sun Oct 31 09:59:44 2021
 //Host        : LAPTOP-62TT0BEG running 64-bit major release  (build 9200)
 //Command     : generate_target bd_wrapper.bd
 //Design      : bd_wrapper
@@ -92,10 +92,10 @@ module bd_wrapper
   output [0:0]ddr4_rtl_ck_t;
   output [0:0]ddr4_rtl_cke;
   output [0:0]ddr4_rtl_cs_n;
-  inout [0:0]ddr4_rtl_dm_n;
-  inout [7:0]ddr4_rtl_dq;
-  inout [0:0]ddr4_rtl_dqs_c;
-  inout [0:0]ddr4_rtl_dqs_t;
+  inout [7:0]ddr4_rtl_dm_n;
+  inout [63:0]ddr4_rtl_dq;
+  inout [7:0]ddr4_rtl_dqs_c;
+  inout [7:0]ddr4_rtl_dqs_t;
   output [0:0]ddr4_rtl_odt;
   output ddr4_rtl_reset_n;
   input sys_clk;
@@ -138,10 +138,10 @@ module bd_wrapper
   wire [0:0]ddr4_rtl_ck_t;
   wire [0:0]ddr4_rtl_cke;
   wire [0:0]ddr4_rtl_cs_n;
-  wire [0:0]ddr4_rtl_dm_n;
-  wire [7:0]ddr4_rtl_dq;
-  wire [0:0]ddr4_rtl_dqs_c;
-  wire [0:0]ddr4_rtl_dqs_t;
+  wire [7:0]ddr4_rtl_dm_n;
+  wire [63:0]ddr4_rtl_dq;
+  wire [7:0]ddr4_rtl_dqs_c;
+  wire [7:0]ddr4_rtl_dqs_t;
   wire [0:0]ddr4_rtl_odt;
   wire ddr4_rtl_reset_n;
   wire sys_clk;

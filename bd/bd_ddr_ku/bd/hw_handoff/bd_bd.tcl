@@ -246,10 +246,12 @@ proc create_root_design { parentCell } {
   set ddr4_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ddr4:2.2 ddr4_0 ]
   set_property -dict [ list \
    CONFIG.C0.BANK_GROUP_WIDTH {1} \
-   CONFIG.C0.DDR4_AxiAddressWidth {28} \
+   CONFIG.C0.DDR4_AxiAddressWidth {31} \
+   CONFIG.C0.DDR4_AxiDataWidth {512} \
    CONFIG.C0.DDR4_CLKOUT0_DIVIDE {4} \
    CONFIG.C0.DDR4_CasLatency {16} \
    CONFIG.C0.DDR4_CasWriteLatency {12} \
+   CONFIG.C0.DDR4_DataWidth {64} \
    CONFIG.C0.DDR4_InputClockPeriod {9996} \
    CONFIG.C0.DDR4_MemoryPart {MT40A256M16GE-083E} \
    CONFIG.C0.DDR4_Specify_MandD {false} \

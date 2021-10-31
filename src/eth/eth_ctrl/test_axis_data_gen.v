@@ -19,13 +19,15 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module test_axis_data_gen #(
-    parameter                           AXIS_DATA_WIDTH     = 64
+    parameter                           AXIS_DATA_WIDTH     = 64,
+    parameter                           LEN_WIDTH           = 16
 )(
     // >>>>>>>>>> sys
     input                               clk                     ,
     input                               rstn                    ,
     input                               test_en                 ,
     // >>>>>>>>>> axis
+    output  [LEN_WIDTH-1 : 0]           tx_size                 ,
     output  [AXIS_DATA_WIDTH-1 : 0]     tx_axis_tdata           ,
     output  [AXIS_DATA_WIDTH/8-1 : 0]   tx_axis_tkeep           ,
     output                              tx_axis_tvalid          ,
@@ -40,12 +42,14 @@ module test_axis_data_gen #(
 
 // >>>>>>>>>> test_axis_tx
 test_axis_tx_gen #(
-    .AXIS_DATA_WIDTH        (AXIS_DATA_WIDTH        )
+    .AXIS_DATA_WIDTH        (AXIS_DATA_WIDTH        ),
+    .LEN_WIDTH              (LEN_WIDTH              )
 )
 u_test_axis_tx_gen (
     .clk                    (clk                    ),
     .rstn                   (rstn                   ),
     .test_en                (test_en                ),
+    .tx_size                (tx_size                ),
     .tx_axis_tdata          (tx_axis_tdata          ),
     .tx_axis_tkeep          (tx_axis_tkeep          ),
     .tx_axis_tvalid         (tx_axis_tvalid         ),

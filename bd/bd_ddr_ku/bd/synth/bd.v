@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sat Oct 23 20:25:35 2021
+//Date        : Sun Oct 31 09:59:44 2021
 //Host        : LAPTOP-62TT0BEG running 64-bit major release  (build 9200)
 //Command     : generate_target bd.bd
 //Design      : bd
@@ -82,10 +82,10 @@ module bd
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_CMD_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_S2MM_CMD_0, CLK_DOMAIN bd_sys_clk, FREQ_HZ 200000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 9, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0" *) input [71:0]S_AXIS_S2MM_CMD_0_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_CMD_0 TREADY" *) output S_AXIS_S2MM_CMD_0_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_CMD_0 TVALID" *) input S_AXIS_S2MM_CMD_0_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 ddr4_clk " *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr4_clk, CAN_DEBUG false, FREQ_HZ 100000000" *) input ddr4_clk_clk_n;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 ddr4_clk " *) input ddr4_clk_clk_p;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 ddr4_clk CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr4_clk, CAN_DEBUG false, FREQ_HZ 100000000" *) input ddr4_clk_clk_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 ddr4_clk CLK_P" *) input ddr4_clk_clk_p;
   output ddr4_init_done;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl ACT_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr4_rtl, AXI_ARBITRATION_SCHEME RD_PRI_REG, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 16, CAS_WRITE_LATENCY 12, CS_ENABLED true, CUSTOM_PARTS no_file_loaded, DATA_MASK_ENABLED DM_NO_DBI, DATA_WIDTH 8, MEMORY_PART MT40A256M16GE-083E, MEMORY_TYPE Components, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 833" *) output ddr4_rtl_act_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl ACT_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr4_rtl, AXI_ARBITRATION_SCHEME RD_PRI_REG, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 16, CAS_WRITE_LATENCY 12, CS_ENABLED true, CUSTOM_PARTS no_file_loaded, DATA_MASK_ENABLED DM_NO_DBI, DATA_WIDTH 64, MEMORY_PART MT40A256M16GE-083E, MEMORY_TYPE Components, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 833" *) output ddr4_rtl_act_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl ADR" *) output [16:0]ddr4_rtl_adr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl BA" *) output [1:0]ddr4_rtl_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl BG" *) output [0:0]ddr4_rtl_bg;
@@ -93,10 +93,10 @@ module bd
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl CK_T" *) output [0:0]ddr4_rtl_ck_t;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl CKE" *) output [0:0]ddr4_rtl_cke;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl CS_N" *) output [0:0]ddr4_rtl_cs_n;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DM_N" *) inout [0:0]ddr4_rtl_dm_n;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DQ" *) inout [7:0]ddr4_rtl_dq;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DQS_C" *) inout [0:0]ddr4_rtl_dqs_c;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DQS_T" *) inout [0:0]ddr4_rtl_dqs_t;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DM_N" *) inout [7:0]ddr4_rtl_dm_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DQ" *) inout [63:0]ddr4_rtl_dq;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DQS_C" *) inout [7:0]ddr4_rtl_dqs_c;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl DQS_T" *) inout [7:0]ddr4_rtl_dqs_t;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl ODT" *) output [0:0]ddr4_rtl_odt;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_rtl RESET_N" *) output ddr4_rtl_reset_n;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.SYS_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.SYS_CLK, ASSOCIATED_BUSIF S_AXIS_MM2S_CMD_0:S_AXIS_S2MM_CMD_0:S_AXIS_S2MM_0:M_AXIS_MM2S_0:M_AXIS_MM2S_STS_0:M_AXIS_S2MM_STS_0, CLK_DOMAIN bd_sys_clk, FREQ_HZ 200000000, INSERT_VIP 0, PHASE 0.000" *) input sys_clk;
@@ -161,7 +161,7 @@ module bd
   wire axi_datamover_0_M_AXI_S2MM_WREADY;
   wire [15:0]axi_datamover_0_M_AXI_S2MM_WSTRB;
   wire axi_datamover_0_M_AXI_S2MM_WVALID;
-  wire [27:0]axi_smc_M00_AXI_ARADDR;
+  wire [30:0]axi_smc_M00_AXI_ARADDR;
   wire [1:0]axi_smc_M00_AXI_ARBURST;
   wire [3:0]axi_smc_M00_AXI_ARCACHE;
   wire [7:0]axi_smc_M00_AXI_ARLEN;
@@ -171,7 +171,7 @@ module bd
   wire axi_smc_M00_AXI_ARREADY;
   wire [2:0]axi_smc_M00_AXI_ARSIZE;
   wire axi_smc_M00_AXI_ARVALID;
-  wire [27:0]axi_smc_M00_AXI_AWADDR;
+  wire [30:0]axi_smc_M00_AXI_AWADDR;
   wire [1:0]axi_smc_M00_AXI_AWBURST;
   wire [3:0]axi_smc_M00_AXI_AWCACHE;
   wire [7:0]axi_smc_M00_AXI_AWLEN;
@@ -184,15 +184,15 @@ module bd
   wire axi_smc_M00_AXI_BREADY;
   wire [1:0]axi_smc_M00_AXI_BRESP;
   wire axi_smc_M00_AXI_BVALID;
-  wire [63:0]axi_smc_M00_AXI_RDATA;
+  wire [511:0]axi_smc_M00_AXI_RDATA;
   wire axi_smc_M00_AXI_RLAST;
   wire axi_smc_M00_AXI_RREADY;
   wire [1:0]axi_smc_M00_AXI_RRESP;
   wire axi_smc_M00_AXI_RVALID;
-  wire [63:0]axi_smc_M00_AXI_WDATA;
+  wire [511:0]axi_smc_M00_AXI_WDATA;
   wire axi_smc_M00_AXI_WLAST;
   wire axi_smc_M00_AXI_WREADY;
-  wire [7:0]axi_smc_M00_AXI_WSTRB;
+  wire [63:0]axi_smc_M00_AXI_WSTRB;
   wire axi_smc_M00_AXI_WVALID;
   wire ddr4_0_C0_DDR4_ACT_N;
   wire [16:0]ddr4_0_C0_DDR4_ADR;
@@ -202,10 +202,10 @@ module bd
   wire [0:0]ddr4_0_C0_DDR4_CK_C;
   wire [0:0]ddr4_0_C0_DDR4_CK_T;
   wire [0:0]ddr4_0_C0_DDR4_CS_N;
-  wire [0:0]ddr4_0_C0_DDR4_DM_N;
-  wire [7:0]ddr4_0_C0_DDR4_DQ;
-  wire [0:0]ddr4_0_C0_DDR4_DQS_C;
-  wire [0:0]ddr4_0_C0_DDR4_DQS_T;
+  wire [7:0]ddr4_0_C0_DDR4_DM_N;
+  wire [63:0]ddr4_0_C0_DDR4_DQ;
+  wire [7:0]ddr4_0_C0_DDR4_DQS_C;
+  wire [7:0]ddr4_0_C0_DDR4_DQS_T;
   wire [0:0]ddr4_0_C0_DDR4_ODT;
   wire ddr4_0_C0_DDR4_RESET_N;
   wire ddr4_0_c0_ddr4_ui_clk;
@@ -411,10 +411,10 @@ module bd
         .c0_ddr4_ck_t(ddr4_0_C0_DDR4_CK_T),
         .c0_ddr4_cke(ddr4_0_C0_DDR4_CKE),
         .c0_ddr4_cs_n(ddr4_0_C0_DDR4_CS_N),
-        .c0_ddr4_dm_dbi_n(ddr4_rtl_dm_n[0]),
-        .c0_ddr4_dq(ddr4_rtl_dq[7:0]),
-        .c0_ddr4_dqs_c(ddr4_rtl_dqs_c[0]),
-        .c0_ddr4_dqs_t(ddr4_rtl_dqs_t[0]),
+        .c0_ddr4_dm_dbi_n(ddr4_rtl_dm_n[7:0]),
+        .c0_ddr4_dq(ddr4_rtl_dq[63:0]),
+        .c0_ddr4_dqs_c(ddr4_rtl_dqs_c[7:0]),
+        .c0_ddr4_dqs_t(ddr4_rtl_dqs_t[7:0]),
         .c0_ddr4_odt(ddr4_0_C0_DDR4_ODT),
         .c0_ddr4_reset_n(ddr4_0_C0_DDR4_RESET_N),
         .c0_ddr4_s_axi_araddr(axi_smc_M00_AXI_ARADDR),

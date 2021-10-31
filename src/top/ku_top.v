@@ -25,22 +25,23 @@ module ku_top(
     input                               clk_156p25m_n       ,
     input                               rstn                ,
     // >>>>>>>>>> ddr
-    input                               ddr4_clk_p          ,
     input                               ddr4_clk_n          ,
+    input                               ddr4_clk_p          ,
     output                              ddr4_init_done      ,
     output                              ddr4_rtl_act_n      ,
-    output                              ddr4_rtl_adr        ,
-    output                              ddr4_rtl_ba         ,
+    output  [16 : 0]                    ddr4_rtl_adr        ,
+    output  [1 : 0]                     ddr4_rtl_ba         ,
     output                              ddr4_rtl_bg         ,
     output                              ddr4_rtl_ck_c       ,
     output                              ddr4_rtl_ck_t       ,
     output                              ddr4_rtl_cke        ,
     output                              ddr4_rtl_cs_n       ,
     inout                               ddr4_rtl_dm_n       ,
-    inout                               ddr4_rtl_dq         ,
+    inout   [7 : 0]                     ddr4_rtl_dq         ,
     inout                               ddr4_rtl_dqs_c      ,
     inout                               ddr4_rtl_dqs_t      ,
     output                              ddr4_rtl_odt        ,
+    output                              ddr4_rtl_reset_n    ,
     // >>>>>>>>>> net tx & rx
     output                              txp                 ,
     output                              txn                 ,
@@ -81,17 +82,24 @@ wire                                    rdata_vld;
 wire    [MM2S_DATA_WIDTH-1 : 0]         rdata;
 // net
 wire                                    coreclk;
-wire                                    eth_en, eth_init_done, usr_cfg_type, usr_wr_en, usr_rd_en, usr_rd_vld;
+wire                                    eth_en, eth_init_done, eth_rst_done;
+wire                                    usr_cfg_type, usr_wr_en, usr_rd_en, usr_rd_vld;
 wire    [REG_ADDR_WIDTH-1 : 0]          usr_wr_addr, usr_rd_addr;
 wire    [REG_DATA_WIDTH-1 : 0]          usr_wr_data, usr_rd_data;
+wire    [LEN_WIDTH-1 : 0]               tx_size;
 wire    [AXIS_DATA_WIDTH-1 : 0]         tx_axis_tdata, rx_axis_tdata;
 wire    [AXIS_DATA_WIDTH/8-1 : 0]       tx_axis_tkeep, rx_axis_tkeep;
 wire                                    tx_axis_tvalid, tx_axis_tlast, tx_axis_tready, rx_axis_tvalid, rx_axis_tlast, rx_axis_tready;
+wire    [47 : 0]                        local_addr, remote_addr;
+// test
 wire                                    test_tx_data_en, test_cfg_type, test_cfg_wr_en, test_cfg_rd_en;
 wire    [REG_ADDR_WIDTH-1 : 0]          test_cfg_wr_addr, test_cfg_rd_addr;
 wire    [REG_DATA_WIDTH-1 : 0]          test_cfg_wr_data, test_cfg_rd_data;
 
-// >>>>>>>>>> test_data_gen
+// >>>>>>>>>> test_gen
+assign local_addr   = 48'h1000;
+assign remote_addr  = 48'h2000;
+
 test_data_gen #(
     .WDATA_WIDTH                (S2MM_DATA_WIDTH        ),
     .RDATA_WIDTH                (MM2S_DATA_WIDTH        ),
@@ -116,8 +124,55 @@ u_test_data_gen (
     .rdata                      (rdata                  )
     );
 
+test_axis_data_gen #(
+    .AXIS_DATA_WIDTH            (AXIS_DATA_WIDTH        )
+)
+u_test_axis_data_gen (
+    .clk                        (coreclk                ),
+    .rstn                       (rstn                   ),
+    .test_en                    (test_tx_data_en        ),
+    .tx_size                    (tx_size                ),
+    .tx_axis_tdata              (tx_axis_tdata          ),
+    .tx_axis_tkeep              (tx_axis_tkeep          ),
+    .tx_axis_tvalid             (tx_axis_tvalid         ),
+    .tx_axis_tlast              (tx_axis_tlast          ),
+    .tx_axis_tready             (tx_axis_tready         ),
+    .rx_axis_tdata              (rx_axis_tdata          ),
+    .rx_axis_tkeep              (rx_axis_tkeep          ),
+    .rx_axis_tvalid             (rx_axis_tvalid         ),
+    .rx_axis_tlast              (rx_axis_tlast          ),
+    .rx_axis_tready             (rx_axis_tready         )
+    );
+
+test_cfg #(
+    .REG_ADDR_WIDTH             (REG_ADDR_WIDTH         ),
+    .REG_DATA_WIDTH             (REG_DATA_WIDTH         )
+)
+u_test_cfg (
+    .clk                        (clk_200m               ),
+    .rstn                       (rstn                   ),
+    .eth_lock                   (eth_rst_done           ),
+    .eth_en                     (eth_en                 ),
+    .eth_init_done              (eth_init_done          ),
+    .test_cfg_type              (test_cfg_type          ),
+    .test_cfg_wr_en             (test_cfg_wr_en         ),
+    .test_cfg_wr_addr           (test_cfg_wr_addr       ),
+    .test_cfg_wr_data           (test_cfg_wr_data       ),
+    .test_cfg_rd_en             (test_cfg_rd_en         ),
+    .test_cfg_rd_addr           (test_cfg_rd_addr       ),
+    .test_cfg_rd_data           (test_cfg_rd_data       ),
+    .usr_cfg_type               (usr_cfg_type           ),
+    .usr_wr_en                  (usr_wr_en              ),
+    .usr_wr_addr                (usr_wr_addr            ),
+    .usr_wr_data                (usr_wr_data            ),
+    .usr_rd_en                  (usr_rd_en              ),
+    .usr_rd_addr                (usr_rd_addr            ),
+    .usr_rd_vld                 (usr_rd_vld             ),
+    .usr_rd_data                (usr_rd_data            )
+    );
+
 // >>>>>>>>>> ddr4_top
-ddr_top #(
+ddr_wrap #(
     .MM2S_DATA_WIDTH            (MM2S_DATA_WIDTH        ),
     .S2MM_DATA_WIDTH            (S2MM_DATA_WIDTH        ),
     .MM2S_CMD_WIDTH             (MM2S_CMD_WIDTH         ),
@@ -127,7 +182,7 @@ ddr_top #(
     .ADDR_WIDTH                 (ADDR_WIDTH             ),
     .LEN_WIDTH                  (LEN_WIDTH              )
 )
-u_ddr_top (
+u_ddr_wrap (
     .clk                        (clk_200m               ),
     .rstn                       (rstn                   ),
     .wstart                     (wstart                 ),
@@ -157,55 +212,8 @@ u_ddr_top (
     .ddr4_rtl_dq                (ddr4_rtl_dq            ),
     .ddr4_rtl_dqs_c             (ddr4_rtl_dqs_c         ),
     .ddr4_rtl_dqs_t             (ddr4_rtl_dqs_t         ),
-    .ddr4_rtl_odt               (ddr4_rtl_odt           )
-    );
-
-
-// >>>>>>>>>> eth_test_ctrl
-test_cfg #(
-    .REG_ADDR_WIDTH             (REG_ADDR_WIDTH         ),
-    .REG_DATA_WIDTH             (REG_DATA_WIDTH         )
-)
-u_test_cfg (
-    .clk                        (clk_200m               ),
-    .rstn                       (rstn                   ),
-    .eth_en                     (eth_en                 ),
-    .eth_init_done              (eth_init_done          ),
-    .test_cfg_type              (test_cfg_type          ),
-    .test_cfg_wr_en             (test_cfg_wr_en         ),
-    .test_cfg_wr_addr           (test_cfg_wr_addr       ),
-    .test_cfg_wr_data           (test_cfg_wr_data       ),
-    .test_cfg_rd_en             (test_cfg_rd_en         ),
-    .test_cfg_rd_addr           (test_cfg_rd_addr       ),
-    .test_cfg_rd_data           (test_cfg_rd_data       ),
-    .usr_cfg_type               (usr_cfg_type           ),
-    .usr_wr_en                  (usr_wr_en              ),
-    .usr_wr_addr                (usr_wr_addr            ),
-    .usr_wr_data                (usr_wr_data            ),
-    .usr_rd_en                  (usr_rd_en              ),
-    .usr_rd_addr                (usr_rd_addr            ),
-    .usr_rd_vld                 (usr_rd_vld             ),
-    .usr_rd_data                (usr_rd_data            )
-    );
-
-// >>>>>>>>>> eth_test_data
-test_axis_data_gen #(
-    .AXIS_DATA_WIDTH            (AXIS_DATA_WIDTH        )
-)
-u_test_axis_data_gen (
-    .clk                        (coreclk                ),
-    .rstn                       (rstn                   ),
-    .test_en                    (test_tx_data_en        ),
-    .tx_axis_tdata              (tx_axis_tdata          ),
-    .tx_axis_tkeep              (tx_axis_tkeep          ),
-    .tx_axis_tvalid             (tx_axis_tvalid         ),
-    .tx_axis_tlast              (tx_axis_tlast          ),
-    .tx_axis_tready             (tx_axis_tready         ),
-    .rx_axis_tdata              (rx_axis_tdata          ),
-    .rx_axis_tkeep              (rx_axis_tkeep          ),
-    .rx_axis_tvalid             (rx_axis_tvalid         ),
-    .rx_axis_tlast              (rx_axis_tlast          ),
-    .rx_axis_tready             (rx_axis_tready         )
+    .ddr4_rtl_odt               (ddr4_rtl_odt           ),
+    .ddr4_rtl_reset_n           (ddr4_rtl_reset_n       )
     );
 
 // >>>>>>>>>> eth_wrap
@@ -225,6 +233,11 @@ u_eth_wrap (
     .s_axi_aresetn              (rstn                   ),
     .eth_en                     (eth_en                 ),
     .eth_init_done              (eth_init_done          ),
+    .eth_rst_done               (eth_rst_done           ),
+    .local_addr                 (local_addr             ),
+    .remote_addr                (remote_addr            ),
+    .tx_size                    (tx_size                ),
+    .rx_size                    (tx_size                ),
     .usr_cfg_type               (usr_cfg_type           ),
     .usr_wr_en                  (usr_wr_en              ),
     .usr_wr_addr                (usr_wr_addr            ),
