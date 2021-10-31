@@ -33,6 +33,7 @@ module eth_wrap #(
     input                               s_axi_aclk              ,    
     input                               s_axi_aresetn           ,
     input                               eth_en                  ,
+    output                              eth_rst_done            ,
     output                              eth_init_done           ,
     // >>>>>>>>>> param
     input   [47 : 0]                    local_addr              ,
@@ -101,6 +102,7 @@ u_eth_ctrl (
     .s_axi_aclk                 (s_axi_aclk                 ),
     .s_axi_aresetn              (rstn                       ),
     .eth_en                     (eth_en                     ),
+    .eth_rst_done               (eth_rst_done               ),
     .eth_init_done              (eth_init_done              ),
     .usr_cfg_type               (usr_cfg_type               ),
     .usr_wr_en                  (usr_wr_en                  ),

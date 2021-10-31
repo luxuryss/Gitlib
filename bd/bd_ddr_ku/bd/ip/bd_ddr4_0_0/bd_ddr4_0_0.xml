@@ -320,7 +320,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>DATA_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4.DATA_WIDTH">8</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4.DATA_WIDTH">64</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1608,7 +1608,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>DATA_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4_S_AXI.DATA_WIDTH">64</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4_S_AXI.DATA_WIDTH">512</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1635,7 +1635,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ADDR_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4_S_AXI.ADDR_WIDTH">28</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4_S_AXI.ADDR_WIDTH">31</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1806,7 +1806,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>MAX_BURST_LENGTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4_S_AXI.MAX_BURST_LENGTH">32</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.C0_DDR4_S_AXI.MAX_BURST_LENGTH">4</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -2362,7 +2362,7 @@
       <spirit:addressBlock>
         <spirit:name>C0_DDR4_ADDRESS_BLOCK</spirit:name>
         <spirit:baseAddress spirit:format="long" spirit:resolve="dependent">0</spirit:baseAddress>
-        <spirit:range spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_MEM_SIZE&apos;))">268435456</spirit:range>
+        <spirit:range spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_MEM_SIZE&apos;))">2147483648</spirit:range>
         <spirit:width spirit:format="long">32</spirit:width>
         <spirit:usage>memory</spirit:usage>
         <spirit:access>read-write</spirit:access>
@@ -2403,7 +2403,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6dc4827d</spirit:value>
+            <spirit:value>9:2b788965</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2417,11 +2417,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Oct 17 06:38:54 UTC 2021</spirit:value>
+            <spirit:value>Sun Oct 24 12:05:32 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69cbe454</spirit:value>
+            <spirit:value>9:c8197e27</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2436,11 +2436,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Oct 17 06:44:56 UTC 2021</spirit:value>
+            <spirit:value>Sun Oct 31 01:59:55 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7399a119</spirit:value>
+            <spirit:value>9:aab3d497</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2455,11 +2455,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Oct 17 06:44:57 UTC 2021</spirit:value>
+            <spirit:value>Sun Oct 31 01:59:56 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7399a119</spirit:value>
+            <spirit:value>9:aab3d497</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2475,11 +2475,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Oct 17 06:45:00 UTC 2021</spirit:value>
+            <spirit:value>Sun Oct 31 01:59:59 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:51ef9aef</spirit:value>
+            <spirit:value>9:d167f04b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2493,11 +2493,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Oct 17 06:45:00 UTC 2021</spirit:value>
+            <spirit:value>Sun Oct 31 01:59:59 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7399a119</spirit:value>
+            <spirit:value>9:aab3d497</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2511,11 +2511,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Oct 17 06:53:42 UTC 2021</spirit:value>
+            <spirit:value>Sun Oct 31 02:13:12 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7399a119</spirit:value>
+            <spirit:value>9:aab3d497</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3280,7 +3280,7 @@
         <spirit:wire>
           <spirit:direction>inout</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DM_WIDTH&apos;))-1">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DM_WIDTH&apos;))-1">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -3303,7 +3303,7 @@
         <spirit:wire>
           <spirit:direction>inout</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQ_WIDTH&apos;))-1">7</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQ_WIDTH&apos;))-1">63</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -3326,7 +3326,7 @@
         <spirit:wire>
           <spirit:direction>inout</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQS_WIDTH&apos;))-1">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQS_WIDTH&apos;))-1">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -3349,7 +3349,7 @@
         <spirit:wire>
           <spirit:direction>inout</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQS_WIDTH&apos;))-1">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQS_WIDTH&apos;))-1">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -3924,7 +3924,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.APP_DATA_WIDTH&apos;))-1">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.APP_DATA_WIDTH&apos;))-1">511</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -3950,7 +3950,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.APP_MASK_WIDTH&apos;))-1">7</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.APP_MASK_WIDTH&apos;))-1">63</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -3976,7 +3976,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.APP_DATA_WIDTH&apos;))-1">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="spirit:decode(id(&apos;MODELPARAM_VALUE.C0.APP_DATA_WIDTH&apos;))-1">511</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -4791,7 +4791,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="( spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_ADDR_WIDTH&apos;)) )-1">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="( spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_ADDR_WIDTH&apos;)) )-1">30</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -5043,7 +5043,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="( spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH&apos;)) )-1">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="( spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH&apos;)) )-1">511</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -5069,7 +5069,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="( spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH&apos;)) )/8-1">7</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="( spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH&apos;)) )/8-1">63</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -5283,7 +5283,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_ADDR_WIDTH&apos;)))-1">27</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_ADDR_WIDTH&apos;)))-1">30</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -5653,7 +5653,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH&apos;)))-1">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH&apos;)))-1">511</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -5679,7 +5679,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="2*spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_nCK_PER_CLK&apos;))*spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQ_WIDTH&apos;))-1">63</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="2*spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_nCK_PER_CLK&apos;))*spirit:decode(id(&apos;MODELPARAM_VALUE.C0.DDR4_DQ_WIDTH&apos;))-1">511</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -6262,22 +6262,22 @@
       <spirit:modelParameter>
         <spirit:name>C0.BUFG_LOC_1</spirit:name>
         <spirit:displayName>BUFG LOC1</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_LOC_1">X0Y22</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_LOC_1">X0Y46</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.BUFG_LOC_2</spirit:name>
         <spirit:displayName>BUFG LOC1</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_LOC_2">X0Y3</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_LOC_2">X0Y7</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.BUFG_DIV_LOC_1</spirit:name>
         <spirit:displayName>BUFG DIV LOC1</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_DIV_LOC_1">X0Y3</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_DIV_LOC_1">X0Y7</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.BUFG_DIV_LOC_2</spirit:name>
         <spirit:displayName>BUFG DIV LOC2</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_DIV_LOC_2">X0Y2</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.BUFG_DIV_LOC_2">X0Y6</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.PBLOCK_SLICE_LOC</spirit:name>
@@ -6312,7 +6312,7 @@
       <spirit:modelParameter>
         <spirit:name>C0.MMCM_IDX_BANK</spirit:name>
         <spirit:displayName>MMCM IDX BANK</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.MMCM_IDX_BANK">0</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.MMCM_IDX_BANK">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.CENTER_BANK_CLOCK_REGION</spirit:name>
@@ -6327,7 +6327,7 @@
       <spirit:modelParameter>
         <spirit:name>C0.SYSCLK_CENTER_INFO</spirit:name>
         <spirit:displayName>SYSCLK CENTER INFO</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.SYSCLK_CENTER_INFO">TRUE</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.SYSCLK_CENTER_INFO">FALSE</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>PING_PONG_PHY</spirit:name>
@@ -6352,7 +6352,7 @@
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_DQ_WIDTH</spirit:name>
         <spirit:displayName>DQ WIDTH</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DQ_WIDTH">8</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DQ_WIDTH">64</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_nCK_PER_CLK</spirit:name>
@@ -6362,12 +6362,12 @@
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_DM_WIDTH</spirit:name>
         <spirit:displayName>DM WIDTH</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DM_WIDTH">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DM_WIDTH">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_DQS_WIDTH</spirit:name>
         <spirit:displayName>DQS WIDTH</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DQS_WIDTH">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DQS_WIDTH">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_nCS_PER_RANK</spirit:name>
@@ -6447,7 +6447,7 @@
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_DATA_MASK</spirit:name>
         <spirit:displayName>DATA MASK</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DATA_MASK">1</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_DATA_MASK">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_COLUMN_WIDTH</spirit:name>
@@ -6762,17 +6762,17 @@
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_AXI_ADDR_WIDTH</spirit:name>
         <spirit:displayName>AXI Address Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_AXI_ADDR_WIDTH">28</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_AXI_ADDR_WIDTH">31</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_AXI_DATA_WIDTH</spirit:name>
         <spirit:displayName>AXI Data Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH">64</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_AXI_DATA_WIDTH">512</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_MEM_SIZE</spirit:name>
         <spirit:displayName>Memory Size</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_MEM_SIZE">268435456</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.DDR4_MEM_SIZE">2147483648</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_UI_CLOCK</spirit:name>
@@ -6807,12 +6807,12 @@
       <spirit:modelParameter>
         <spirit:name>C0.APP_DATA_WIDTH</spirit:name>
         <spirit:displayName>APP Data Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.APP_DATA_WIDTH">64</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.APP_DATA_WIDTH">512</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.APP_MASK_WIDTH</spirit:name>
         <spirit:displayName>APP Mask Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.APP_MASK_WIDTH">8</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C0.APP_MASK_WIDTH">64</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>C0.DDR4_StackHeight</spirit:name>
@@ -7095,11 +7095,6 @@
       <spirit:enumeration>RZQ/6</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
-      <spirit:name>choice_list_99ba8646</spirit:name>
-      <spirit:enumeration>32</spirit:enumeration>
-      <spirit:enumeration>64</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
       <spirit:name>choice_list_9da6e6e5</spirit:name>
       <spirit:enumeration>MT40A512M8RH-075E</spirit:enumeration>
       <spirit:enumeration>MT40A1G8PM-075E</spirit:enumeration>
@@ -7136,10 +7131,6 @@
       <spirit:enumeration>RZQ/6</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
-      <spirit:name>choice_list_c4d2401c</spirit:name>
-      <spirit:enumeration>28</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
       <spirit:name>choice_list_c89503c8</spirit:name>
       <spirit:enumeration>ROW_BANK_COLUMN</spirit:enumeration>
       <spirit:enumeration>BANK_ROW_COLUMN</spirit:enumeration>
@@ -7147,8 +7138,20 @@
       <spirit:enumeration>ROW_COLUMN_BANK_INTLV</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_list_d6556846</spirit:name>
+      <spirit:enumeration>32</spirit:enumeration>
+      <spirit:enumeration>64</spirit:enumeration>
+      <spirit:enumeration>128</spirit:enumeration>
+      <spirit:enumeration>256</spirit:enumeration>
+      <spirit:enumeration>512</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_list_d8920bdd</spirit:name>
       <spirit:enumeration>8</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_e47dafc3</spirit:name>
+      <spirit:enumeration>31</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_ed30197c</spirit:name>
@@ -8775,7 +8778,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C0.DDR4_DataWidth</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C0.DDR4_DataWidth" spirit:choiceRef="choice_list_291719ff" spirit:order="31">8</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C0.DDR4_DataWidth" spirit:choiceRef="choice_list_291719ff" spirit:order="31">64</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C0.DDR4_DataMask</spirit:name>
@@ -8856,7 +8859,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C0.DDR4_AxiDataWidth</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C0.DDR4_AxiDataWidth" spirit:choiceRef="choice_list_99ba8646" spirit:order="46">64</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C0.DDR4_AxiDataWidth" spirit:choiceRef="choice_list_d6556846" spirit:order="46">512</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C0.DDR4_AxiArbitrationScheme</spirit:name>
@@ -8868,7 +8871,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C0.DDR4_AxiAddressWidth</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C0.DDR4_AxiAddressWidth" spirit:choiceRef="choice_list_c4d2401c" spirit:order="49">28</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C0.DDR4_AxiAddressWidth" spirit:choiceRef="choice_list_e47dafc3" spirit:order="49">31</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C0.DDR4_AxiIDWidth</spirit:name>
@@ -9301,11 +9304,13 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.C0_SYS_CLK.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.BANK_GROUP_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_AxiAddressWidth" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_AxiDataWidth" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_AxiIDWidth" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_AxiNarrowBurst" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_CasLatency" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_CasWriteLatency" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_DataWidth" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_InputClockPeriod" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_MemoryPart" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_Specify_MandD" xilinx:valueSource="user"/>

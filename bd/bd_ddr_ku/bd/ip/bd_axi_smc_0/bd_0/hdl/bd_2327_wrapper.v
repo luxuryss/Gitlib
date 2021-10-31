@@ -84,7 +84,7 @@ module bd_2327_wrapper
     aclk,
     aclk1,
     aresetn);
-  output [27:0]M00_AXI_araddr;
+  output [30:0]M00_AXI_araddr;
   output [1:0]M00_AXI_arburst;
   output [3:0]M00_AXI_arcache;
   output [7:0]M00_AXI_arlen;
@@ -95,7 +95,7 @@ module bd_2327_wrapper
   output [2:0]M00_AXI_arsize;
   output [3:0]M00_AXI_aruser;
   output M00_AXI_arvalid;
-  output [27:0]M00_AXI_awaddr;
+  output [30:0]M00_AXI_awaddr;
   output [1:0]M00_AXI_awburst;
   output [3:0]M00_AXI_awcache;
   output [7:0]M00_AXI_awlen;
@@ -109,15 +109,15 @@ module bd_2327_wrapper
   output M00_AXI_bready;
   input [1:0]M00_AXI_bresp;
   input M00_AXI_bvalid;
-  input [63:0]M00_AXI_rdata;
+  input [511:0]M00_AXI_rdata;
   input M00_AXI_rlast;
   output M00_AXI_rready;
   input [1:0]M00_AXI_rresp;
   input M00_AXI_rvalid;
-  output [63:0]M00_AXI_wdata;
+  output [511:0]M00_AXI_wdata;
   output M00_AXI_wlast;
   input M00_AXI_wready;
-  output [7:0]M00_AXI_wstrb;
+  output [63:0]M00_AXI_wstrb;
   output M00_AXI_wvalid;
   input [31:0]S00_AXI_araddr;
   input [1:0]S00_AXI_arburst;
@@ -162,7 +162,7 @@ module bd_2327_wrapper
   input aclk1;
   input aresetn;
 
-  wire [27:0]M00_AXI_araddr;
+  wire [30:0]M00_AXI_araddr;
   wire [1:0]M00_AXI_arburst;
   wire [3:0]M00_AXI_arcache;
   wire [7:0]M00_AXI_arlen;
@@ -173,7 +173,7 @@ module bd_2327_wrapper
   wire [2:0]M00_AXI_arsize;
   wire [3:0]M00_AXI_aruser;
   wire M00_AXI_arvalid;
-  wire [27:0]M00_AXI_awaddr;
+  wire [30:0]M00_AXI_awaddr;
   wire [1:0]M00_AXI_awburst;
   wire [3:0]M00_AXI_awcache;
   wire [7:0]M00_AXI_awlen;
@@ -187,15 +187,15 @@ module bd_2327_wrapper
   wire M00_AXI_bready;
   wire [1:0]M00_AXI_bresp;
   wire M00_AXI_bvalid;
-  wire [63:0]M00_AXI_rdata;
+  wire [511:0]M00_AXI_rdata;
   wire M00_AXI_rlast;
   wire M00_AXI_rready;
   wire [1:0]M00_AXI_rresp;
   wire M00_AXI_rvalid;
-  wire [63:0]M00_AXI_wdata;
+  wire [511:0]M00_AXI_wdata;
   wire M00_AXI_wlast;
   wire M00_AXI_wready;
-  wire [7:0]M00_AXI_wstrb;
+  wire [63:0]M00_AXI_wstrb;
   wire M00_AXI_wvalid;
   wire [31:0]S00_AXI_araddr;
   wire [1:0]S00_AXI_arburst;

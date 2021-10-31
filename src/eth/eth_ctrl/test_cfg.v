@@ -25,6 +25,7 @@ module test_cfg #(
     // >>>>>>>>>> sys
     input                                   clk                     ,
     input                                   rstn                    ,
+    input                                   eth_lock                ,
     output  reg                             eth_en                  ,
     input                                   eth_init_done           ,
     // >>>>>>>>>> test_ctrl
@@ -79,7 +80,7 @@ always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         eth_en <= 1'd0;
     else
-        eth_en <= 1'd1;
+        eth_en <= eth_lock;
 end
 
 always @(posedge clk or negedge rstn) begin

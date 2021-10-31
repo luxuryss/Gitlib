@@ -40,10 +40,10 @@
 /timing/M00_Buffer/W_SLR_PIPE/value=0;range=0..8;strength=0
 /timing/M00_Buffer/W_SYNC_STAGES/value=3;range=2,3,4,5,6,7,8;strength=0
 /timing/M00_Exit/REGSLICE/value=1;range=0,1;strength=0
-/config/M00_Exit/DATA_WIDTH/value=64
+/config/M00_Exit/DATA_WIDTH/value=512
 /config/M00_Exit/ID_WIDTH/value=1
 /config/M00_Exit/PROTOCOL/value=AXI4
-/config/M00_Exit/ADDR_WIDTH/value=28
+/config/M00_Exit/ADDR_WIDTH/value=31
 /timing/SW0/AR_M_PIPE/value=1;range=0..8;strength=0
 /timing/SW0/AR_S_PIPE/value=0;range=0..8;strength=0
 /timing/SW0/AW_M_PIPE/value=1;range=0..8;strength=0
@@ -63,11 +63,11 @@
 /config/aclk1/csk/value=bd_ddr4_0_0_c0_ddr4_ui_clk:300:0.00
 /clocking/M00_Exit/ASSOCIATED_CLK/value=aclk1;range=aclk1;editable=0
 /clocking/SW0/ASSOCIATED_CLK/value=aclk;range=aclk,aclk1;strength=0
-/functional/S00_Entry/LIM_R_LEN/value=256;range=0,1,2,4,8,16;strength=0
+/functional/S00_Entry/LIM_R_LEN/value=0;range=0,1,2,4,8,16;strength=0
 /functional/S00_Entry/PKT_R_THR/value=0;range=0,1,2,4,8,16,32;strength=0
-/functional/S01_Entry/LIM_W_LEN/value=256;range=0,1,2,4,8,16;strength=0
+/functional/S01_Entry/LIM_W_LEN/value=0;range=0,1,2,4,8,16;strength=0
 /functional/S01_Entry/PKT_W_THR/value=0;range=0,1,2,4,8,16,32;strength=0
-/functional/SW0/DATA_WIDTH/value=128;range=64,128,256,512,1024;strength=0
+/functional/SW0/DATA_WIDTH/value=512;range=128,256,512,1024;strength=0
 /functional/M00_Buffer/AR_SIZE/value=32;range=16,32;strength=0
 /functional/M00_Buffer/AW_SIZE/value=32;range=16,32;strength=0
 /functional/M00_Buffer/B_SIZE/value=32;range=16,32;strength=0
