@@ -55,7 +55,7 @@ module eth_fsm #(
 // cfg_num
 localparam                          EN_RST_CFG_NUM      = 3;
 localparam                          WR_PHY_CFG_NUM      = 6;
-localparam                          RD_PHY_CFG_NUM      = 6;
+localparam                          RD_PHY_CFG_NUM      = 9;
 localparam                          MAX_CFG_NUM         = (WR_PHY_CFG_NUM > RD_PHY_CFG_NUM) ? WR_PHY_CFG_NUM : RD_PHY_CFG_NUM;
 // wr_cnt
 localparam                          W_WR_PHY_ADDR       = 0;
@@ -66,11 +66,14 @@ localparam                          W_WR_OP_WRITE       = 4;
 localparam                          W_WAIT_WRITE_RDY    = 5;
 // rd_cnt
 localparam                          R_WR_PHY_ADDR       = 0;
-localparam                          R_WR_OP_ADDR        = 1;
-localparam                          R_WAIT_ADDR_RDY     = 2;
+localparam                          R_WR_OP_READ        = 1;
+localparam                          R_WAIT_READ_RDY     = 2;
 localparam                          R_RWR_PHY_ADDR      = 3;
-localparam                          R_WR_OP_READ        = 4;
-localparam                          R_WAIT_READ_RDY     = 5;
+localparam                          R_WR_OP_ADDR        = 4;
+localparam                          R_WAIT_ADDR_RDY     = 5;
+localparam                          R_RRWR_PHY_ADDR     = 6;
+localparam                          R_RWR_OP_READ       = 7;
+localparam                          R_WAIT_RDATA_RDY    = 8;
 // ip_reg_addr
 localparam                          MDIO_CFG_WORD_0     = 'h500;
 localparam                          MDIO_CFG_WORD_1     = 'h504;
@@ -102,6 +105,7 @@ wire                                cfg_busy_rising, cfg_busy_falling, cfg_en_ri
 reg     [3 : 0]                     state, next_state;
 reg     [$clog2(MAX_CFG_NUM)-1 : 0] cfg_cnt;
 reg     [15 : 0]                    rst_cnt;
+reg                                 pcs_rst_flag;
 // mdio_cfg
 wire                                mdio_en, mdio_rdy_rising, mdio_rdy_falling, mdio_rd_done, mdio_wr_done;
 wire    [5 : 0]                     clk_div;
@@ -111,12 +115,12 @@ reg     [1 : 0]                     mdio_op;
 reg                                 mdio_rdy, pcs_block_lock;
 
 // >>>>>>>>>> rst
-assign eth_rst_done = (&rst_cnt[11 : 0]);
+assign eth_rst_done = (rst_cnt == 16'd3300);
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         rst_cnt <= 16'd0;
-    else if(&rst_cnt[11 : 0])
+    else if(rst_cnt == 16'd3300)
         rst_cnt <= rst_cnt;
     else
         rst_cnt <= rst_cnt + 1'd1;
@@ -145,7 +149,7 @@ always @(*) begin
                 next_state = EN_RST;
         end
         PCS_INIT: begin
-            if(cfg_busy_falling == 1'd1 && cfg_cnt == (WR_PHY_CFG_NUM-1) && mdio_rdy == 1'd1)
+            if(cfg_busy_falling == 1'd1 && cfg_cnt == (WR_PHY_CFG_NUM-1) && mdio_rdy == 1'd1 && pcs_rst_flag == 1'd1)
                 next_state = WAIT_INIT;
             else
                 next_state = PCS_INIT;            
@@ -201,7 +205,7 @@ assign trans_rst        = 1'd1;
 assign trans_en         = 1'd1;
 assign mdio_port_addr   = 5'd0;
 assign mdio_dev_addr    = 5'd3;
-assign mdio_rd_done     = (state == RD_PHY_REG) && (mdio_rdy_rising == 1'd1) && (cfg_cnt == R_WAIT_READ_RDY);
+assign mdio_rd_done     = (state == RD_PHY_REG) && (mdio_rdy_rising == 1'd1) && (cfg_cnt == R_WAIT_RDATA_RDY);
 
 // mdio
 always @(posedge clk or negedge rstn) begin
@@ -210,7 +214,7 @@ always @(posedge clk or negedge rstn) begin
     else if(state == RD_PHY_REG || state == WAIT_INIT) begin
         if(cfg_cnt == R_WR_OP_ADDR)
             mdio_op <= MDIO_OP_ADDR;
-        else if(cfg_cnt == R_WR_OP_READ)
+        else if(cfg_cnt == R_WR_OP_READ || cfg_cnt == R_RWR_OP_READ)
             mdio_op <= MDIO_OP_RD;
     end
     else if(state == WR_PHY_REG || state == PCS_INIT) begin
@@ -228,9 +232,9 @@ always @(posedge clk or negedge rstn) begin
         mdio_rdy <= 1'd0;
     else if(cfg_rd_vld == 1'd1) begin
         if(state == RD_PHY_REG || state == WAIT_INIT) begin
-            if(cfg_cnt == R_WAIT_ADDR_RDY)
+            if(cfg_cnt == R_WAIT_ADDR_RDY || cfg_cnt == R_WAIT_READ_RDY)
                 mdio_rdy <= cfg_rd_data[7];
-            else if(cfg_cnt == R_WAIT_READ_RDY)
+            else if(cfg_cnt == R_WAIT_RDATA_RDY)
                 mdio_rdy <= cfg_rd_data[16];
         end
         else if(state == WR_PHY_REG || state == PCS_INIT) begin
@@ -254,31 +258,29 @@ always @(posedge clk or negedge rstn) begin
     end
     else if(state == RD_PHY_REG || state == WAIT_INIT) begin
         if(cfg_busy_falling == 1'd1) begin
-            if(cfg_cnt == R_WR_PHY_ADDR || cfg_cnt == R_WR_OP_ADDR || cfg_cnt == R_RWR_PHY_ADDR || cfg_cnt == R_WR_OP_READ)
-                cfg_cnt <= cfg_cnt + 1'd1;
-            else if(cfg_cnt == R_WAIT_ADDR_RDY) begin
+            if(cfg_cnt == R_WAIT_ADDR_RDY || cfg_cnt == R_WAIT_READ_RDY) begin
                 if(mdio_rdy == 1'd1)
                     cfg_cnt <= cfg_cnt + 1'd1;
             end
-            else if(cfg_cnt == R_WAIT_READ_RDY) begin
+            else if(cfg_cnt == R_WAIT_RDATA_RDY) begin
                 if(mdio_rdy == 1'd1) begin
                     if(pcs_block_lock == 1'd0) begin
                         if(cfg_rd_data[0] == 1'd1)
                             cfg_cnt <= R_WR_PHY_ADDR;
                         else
-                            cfg_cnt <= R_WR_OP_READ;
+                            cfg_cnt <= R_RRWR_PHY_ADDR;
                     end
                     else
                         cfg_cnt <= R_WR_PHY_ADDR;
                 end
             end
+            else
+                cfg_cnt <= cfg_cnt + 1'd1;
         end
     end
     else if(state == WR_PHY_REG || state == PCS_INIT) begin
         if(cfg_busy_falling == 1'd1) begin
-            if(cfg_cnt == W_WR_PHY_ADDR || cfg_cnt == W_WR_OP_ADDR || cfg_cnt == W_WR_PHY_DATA || cfg_cnt == W_WR_OP_WRITE)
-                cfg_cnt <= cfg_cnt + 1'd1;
-            else if(cfg_cnt == W_WAIT_ADDR_RDY) begin
+            if(cfg_cnt == W_WAIT_ADDR_RDY) begin
                 if(mdio_rdy == 1'd1)
                     cfg_cnt <= cfg_cnt + 1'd1;
             end
@@ -286,6 +288,8 @@ always @(posedge clk or negedge rstn) begin
                 if(mdio_rdy == 1'd1)
                     cfg_cnt <= W_WR_PHY_ADDR;
             end
+            else
+                cfg_cnt <= cfg_cnt + 1'd1;
         end
     end
     else
@@ -328,12 +332,12 @@ always @(posedge clk or negedge rstn) begin
             end
         end
         else if(state == RD_PHY_REG || state == WAIT_INIT) begin
-            if(cfg_cnt == R_WR_PHY_ADDR || cfg_cnt == R_RWR_PHY_ADDR) begin
+            if(cfg_cnt == R_WR_PHY_ADDR || cfg_cnt == R_RWR_PHY_ADDR || cfg_cnt == R_RRWR_PHY_ADDR) begin
                 cfg_wr_en   <= 1'd1;
                 cfg_wr_addr <= MDIO_TX_DATA;
                 cfg_wr_data <= (pcs_block_lock == 1'd1) ? usr_rd_addr : BASER_10G_STATUS_1;
             end
-            else if(cfg_cnt == R_WR_OP_ADDR || cfg_cnt == R_WR_OP_READ) begin
+            else if(cfg_cnt == R_WR_OP_READ || cfg_cnt == R_WR_OP_ADDR || cfg_cnt == R_RWR_OP_READ) begin
                 cfg_wr_en   <= 1'd1;
                 cfg_wr_addr <= MDIO_CFG_WORD_1;
                 cfg_wr_data <= {3'd0, mdio_port_addr, 3'd0, mdio_dev_addr, mdio_op, 2'd0, 1'd1, 3'd0, 1'd0, 7'd0};
@@ -376,11 +380,11 @@ always @(posedge clk or negedge rstn) begin
     end
     else if(cfg_en_rising == 1'd1) begin
         if(state == RD_PHY_REG || state == WAIT_INIT) begin
-            if(cfg_cnt == R_WAIT_ADDR_RDY) begin
+            if(cfg_cnt == R_WAIT_ADDR_RDY || cfg_cnt == R_WAIT_READ_RDY) begin
                 cfg_rd_en   <= 1'd1;
                 cfg_rd_addr <= MDIO_CFG_WORD_1;
             end
-            else if(cfg_cnt == R_WAIT_READ_RDY) begin
+            else if(cfg_cnt == R_WAIT_RDATA_RDY) begin
                 cfg_rd_en   <= 1'd1;
                 cfg_rd_addr <= MDIO_RX_DATA;
             end
@@ -409,7 +413,7 @@ always @(posedge clk or negedge rstn) begin
     end
     else if(cfg_rd_vld == 1'd1) begin
         if(state == RD_PHY_REG) begin
-            if(cfg_cnt == R_WAIT_READ_RDY && cfg_rd_data[16] == 1'd1) begin
+            if(cfg_cnt == R_WAIT_RDATA_RDY && cfg_rd_data[16] == 1'd1) begin
                 usr_rd_vld  <= 1'd1;
                 usr_rd_data <= cfg_rd_data[15 : 0];
             end
@@ -472,8 +476,15 @@ assign eth_init_done    = pcs_block_lock;
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         pcs_block_lock <= 1'd0;
-    else if(state == WAIT_INIT && cfg_rd_vld == 1'd1 && cfg_rd_data[0] == 1'd1 && cfg_cnt == R_WAIT_READ_RDY)
+    else if(state == WAIT_INIT && cfg_rd_vld == 1'd1 && cfg_rd_data[0] == 1'd1 && cfg_cnt == R_WAIT_RDATA_RDY)
         pcs_block_lock <= 1'd1;
+end
+
+always @(posedge clk or negedge rstn) begin
+    if(rstn == 1'd0)
+        pcs_rst_flag <= 1'd0;
+    else if(cfg_busy_falling == 1'd1 && cfg_cnt == (WR_PHY_CFG_NUM-1) && mdio_rdy == 1'd1)
+        pcs_rst_flag <= 1'd1;
 end
 
 endmodule
