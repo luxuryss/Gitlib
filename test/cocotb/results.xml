@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1642345164" />
+    <testcase name="run_test" classname="verify" file="D:\Gitlib\test\cocotb\verify.py" lineno="100" time="0.004000425338745117" sim_time_ns="0.001" ratio_time="0.24997341915489601">
+      <failure />
+    </testcase>
+  </testsuite>
+</testsuites>
