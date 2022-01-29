@@ -32,10 +32,10 @@ TOPLEVEL_LANG ?= verilog
 PWD=$(shell pwd)
 
 VERILOG_SOURCES = $(PWD)/src/test_top.sv
-COCOTB_LOG_LEVEL = INFO
+#COCOTB_LOG_LEVEL = INFO
 WAVES = 1
 
 TOPLEVEL := test_top
-MODULE   := verify
+MODULE   := tb_test_top
 
 include $(shell cocotb-config --makefiles)/Makefile.sim

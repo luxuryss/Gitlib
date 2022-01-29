@@ -10,17 +10,17 @@ Reading D:/Software/Modelsim/tcl/vsim/pref.tcl
 # vmap work sim_build/work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
-# Start time: 22:59:22 on Jan 16,2022
+# Start time: 20:58:44 on Jan 22,2022
 # vlog -work work "+define+COCOTB_SIM" -sv -timescale 1ns/1ps -mfcu "+acc" D:/Gitlib/test/cocotb/src/test_top.sv 
 # -- Compiling module test_top
 # 
 # Top level modules:
 # 	test_top
-# End time: 22:59:22 on Jan 16,2022, Elapsed time: 0:00:00
+# End time: 20:58:44 on Jan 22,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # ** Warning: (vsim-159) Mode option -64 is not supported in this context and will be ignored.
 # vsim -onfinish exit -pli "D:/software/miniconda/lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll" sim_build/work.test_top 
-# Start time: 22:59:22 on Jan 16,2022
+# Start time: 20:58:44 on Jan 22,2022
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-3865) Due to PLI being present, full design access is being specified.
 # //  ModelSim SE-64 10.6d Feb 24 2018
@@ -48,13 +48,45 @@ D:\software\miniconda\lib\site-packages\cocotb\scheduler.py:541: FutureWarning: 
 # 
 #      0.00ns INFO     Running tests with cocotb v1.6.1 from D:\software\miniconda\lib\site-packages\cocotb
 # 
-#      0.00ns INFO     Seeding Python random module with 1642345164
+#      0.00ns INFO     Seeding Python random module with 1642856326
 # 
 #      0.00ns WARNING  Pytest not found, assertion rewriting will not occur
 # 
-#      0.00ns INFO     Found test verify.run_test
+#      0.00ns INFO     Found test tb_test_top.run_test
 # 
 #      0.00ns INFO     running run_test (1/1)
+# 
+#      0.00ns INFO     >>>>>>>>>> user: create input_driver
+# 
+#      0.00ns INFO     >>>>>>>>>> user: create output_monitor
+# 
+#      0.00ns INFO     >>>>>>>>>> user: create clock_domain
+# 
+#      0.00ns INFO     >>>>>>>>>> user: tb_adder create
+# 
+#      0.00ns INFO     >>>>>>>>>> user: start din_drv thread
+# 
+#      0.00ns INFO     >>>>>>>>>> user: start dout_mon thread
+# 
+#      0.00ns INFO     >>>>>>>>>> user: clock_rst start
+# 
+#      0.00ns INFO     >>>>>>>>>> user: tb_start
+# 
+#      0.00ns INFO     >>>>>>>>>> user: add trans 3 + 5
+# 
+# (3, 5)
+# 
+#      0.00ns INFO     >>>>>>>>>> user: pop din start
+# 
+#      0.00ns INFO     >>>>>>>>>> user: get a transaction in input driver
+# 
+# z
+# 
+# zzzzzzzz
+# 
+# zzzzzzzz
+# 
+# x
 # 
 #      0.00ns ERROR    Exception raised by this forked coroutine
 # 
@@ -62,17 +94,9 @@ D:\software\miniconda\lib\site-packages\cocotb\scheduler.py:541: FutureWarning: 
 # 
 #                      Traceback (most recent call last):
 # 
-#                        File "D:\Gitlib\test\cocotb\verify.py", line 71, in task_monitor
+#                        File "D:\Gitlib\test\cocotb\tb_test_top.py", line 92, in task_monitor
 # 
-#                          if self.dout_vld.value != 0:
-# 
-#                        File "D:\software\miniconda\lib\site-packages\cocotb\binary.py", line 506, in __ne__
-# 
-#                          return self.value != other
-# 
-#                        File "D:\software\miniconda\lib\site-packages\cocotb\binary.py", line 345, in value
-# 
-#                          return self.integer
+#                          if self.dout_vld.value.integer:
 # 
 #                        File "D:\software\miniconda\lib\site-packages\cocotb\binary.py", line 336, in integer
 # 
@@ -98,7 +122,7 @@ D:\software\miniconda\lib\site-packages\cocotb\scheduler.py:541: FutureWarning: 
 # 
 #                      **************************************************************************************
 # 
-#                      ** verify.run_test                FAIL           0.00           0.00          0.25  **
+#                      ** tb_test_top.run_test           FAIL           0.00           0.00          0.50  **
 # 
 #                      **************************************************************************************
 # 
@@ -110,5 +134,5 @@ D:\software\miniconda\lib\site-packages\cocotb\scheduler.py:541: FutureWarning: 
 # 
 # ** Note: $finish
 #    Time: 1 ps  Iteration: 0  Instance: /test_top
-# End time: 22:59:24 on Jan 16,2022, Elapsed time: 0:00:02
+# End time: 20:58:46 on Jan 22,2022, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1
