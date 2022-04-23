@@ -1,8 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1642856326" />
-    <testcase name="run_test" classname="tb_test_top" file="D:\Gitlib\test\cocotb\tb_test_top.py" lineno="130" time="0.0019991397857666016" sim_time_ns="0.001" ratio_time="0.5002151460942159">
-      <failure />
-    </testcase>
-  </testsuite>
-</testsuites>
