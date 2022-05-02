@@ -29,8 +29,11 @@ module bd_wrap #(
     parameter                           LEN_WIDTH       = 16
 )(
     // >>>>>>>>>> sys
-    input                               clk                 ,
-    input                               rstn                ,
+    output                              ps_clk_100m         ,
+    output                              ps_clk_125m         ,
+    output                              ps_clk_250m         ,
+    output                              ps_clk_300m         ,
+    output                              ps_rstn             ,
     // >>>>>>>>>> usr
     input                               wstart              ,
     output                              wready              ,
@@ -83,8 +86,8 @@ axi_datamover_write #(
     .STS_WIDTH                      (S2MM_STS_WIDTH                 )
 )
 u_axi_datamover_write (
-    .clk                            (clk                            ),
-    .rstn                           (rstn                           ),
+    .clk                            (ps_clk_250m                    ),
+    .rstn                           (ps_rstn                        ),
     .start                          (wstart                         ),
     .wready                         (wready                         ),
     .waddr                          (waddr                          ),
@@ -114,8 +117,8 @@ axi_datamover_read #(
     .STS_WIDTH                      (MM2S_STS_WIDTH                 )
 )
 u_axi_datamover_read (
-    .clk                            (clk                            ),
-    .rstn                           (rstn                           ),
+    .clk                            (ps_clk_250m                    ),
+    .rstn                           (ps_rstn                        ),
     .start                          (rstart                         ),
     .rready                         (rready                         ),
     .raddr                          (raddr                          ),

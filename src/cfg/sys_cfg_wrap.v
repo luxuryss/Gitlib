@@ -44,7 +44,6 @@ localparam                              BASE_ADDR   = 32'h0;
 
 // >>>>>>>>>> cfg_regs
 sys_cfg_regs #(
-    .BASE_ADDR          (BASE_ADDR              ),
     .ADDR_WIDTH         (ADDR_WIDTH             ),
     .DATA_WIDTH         (DATA_WIDTH             ),
     .BYTE_NUM           (BYTE_NUM               )

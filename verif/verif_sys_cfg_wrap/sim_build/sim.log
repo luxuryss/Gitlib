@@ -1,0 +1,2 @@
+D:\software\miniconda\lib\site-packages\cocotb\scheduler.py:541: FutureWarning: "Unwatched" tasks that throw exceptions will not cause the test to fail. See issue #2664 for more details.
+  warnings.warn(

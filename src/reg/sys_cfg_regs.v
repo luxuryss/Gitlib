@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module sys_cfg_regs #(
-    parameter                           BASE_ADDR   = 32'h10000 ,
     parameter                           ADDR_WIDTH  = 32        ,
     parameter                           DATA_WIDTH  = 32        ,
     parameter                           BYTE_NUM    = 4
@@ -32,7 +31,7 @@ module sys_cfg_regs #(
     input       [BYTE_NUM-1:0]          bram_we     ,
     input       [ADDR_WIDTH-1:0]        bram_addr   ,
     input       [DATA_WIDTH-1:0]        bram_din    ,
-    output  reg [DATA_WIDTH-1:0]        bram_dout   ,
+    output      [DATA_WIDTH-1:0]        bram_dout   ,
     // >>>>>>>>>> sys_regs
     output      [DATA_WIDTH-1:0]        reg_0       ,
     output      [DATA_WIDTH-1:0]        reg_1       ,
@@ -48,50 +47,64 @@ localparam                              RST_VAL_REG_0000    = 'h0;
 localparam                              RST_VAL_REG_0004    = 'h0;
 localparam                              RST_VAL_REG_0008    = 'h0;
 localparam                              RST_VAL_REG_000C    = 'h0;
+// reg_base_addr
+localparam                              BASE_ADDR_REG_0000  = 'h0;
+localparam                              BASE_ADDR_REG_0004  = 'h4;
+localparam                              BASE_ADDR_REG_0008  = 'h8;
+localparam                              BASE_ADDR_REG_000C  = 'hC;
 // reg_index
+localparam                              REG_BASE_ADDR       = 32'h0001_0000;
+localparam                              REG_ADDR_MASK       = 32'h0000_FFFF;
 localparam                              REG_0000_INDEX      = 0;
 localparam                              REG_0004_INDEX      = 1;
 localparam                              REG_0008_INDEX      = 2;
 localparam                              REG_000C_INDEX      = 3;
 
 // >>>>>>>>>> cfg_port
-wire                                    base_addr_match;
 reg                                     cfg_en;
 reg     [ADDR_WIDTH-1:0]                cfg_addr;
 reg     [DATA_WIDTH-1:0]                cfg_data;
+reg     [ADDR_WIDTH-1:0]                reg_rdata;
+wire    [ADDR_WIDTH-1:0]                bram_base_addr_mask, bram_reg_addr_mask;
 
 // >>>>>>>>>> reg_out
 wire    [REG_NUM-1:0][DATA_WIDTH-1:0]   reg_out;
 
-// >>>>>>>>>> ctrl
-assign base_addr_match  = ((bram_addr&16'h0000) == BASE_ADDR);
-
+// write_regs
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         cfg_en <= 'd0;
     else
-        cfg_en <= (base_addr_match == 1'd1) && (bram_en == 1'd1) && (&bram_we);
+        cfg_en <= (bram_en == 1'd1) && (&bram_we);
 end
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         cfg_addr <= 'd0;
-    else if(base_addr_match == 1'd1 && bram_en == 1'd1 && (&bram_we))
+    else if(bram_en == 1'd1 && (&bram_we))
         cfg_addr <= bram_addr;
 end
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         cfg_data <= 'd0;
-    else if(base_addr_match == 1'd1 && bram_en == 1'd1 && (&bram_we))
+    else if(bram_en == 1'd1 && (&bram_we))
         cfg_data <= bram_din;
 end
 
+// read_regs
+assign bram_dout            = reg_rdata;
+assign bram_base_addr_mask  = bram_addr & REG_BASE_ADDR;
+assign bram_reg_addr_mask   = bram_addr & REG_ADDR_MASK;
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
-        bram_dout <= 'd0;
-    else if(base_addr_match == 1'd1)
-        bram_dout <= reg_out[bram_addr[ADDR_WIDTH-1:2]];
+        reg_rdata <= 'd0;
+    else if(bram_en == 1'd1 && bram_base_addr_mask == REG_BASE_ADDR) begin
+        if(bram_reg_addr_mask[ADDR_WIDTH-1:2] < REG_NUM)        // 4byte_num < REG_NUM
+            reg_rdata <= reg_out[bram_addr[ADDR_WIDTH-1:2]];
+        else
+            reg_rdata <= 'd0;
+    end
 end
 
 // >>>>>>>>>> regs_out

@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1651505390" />
+    <testcase name="run_test_cfg_reg" classname="test_sys_cfg_wrap" file="D:\Project_lib\verif\verif_sys_cfg_wrap\test_sys_cfg_wrap.py" lineno="42" time="0.0019989013671875" sim_time_ns="0.001" ratio_time="0.5002748091603053">
+      <failure />
+    </testcase>
+  </testsuite>
+</testsuites>
