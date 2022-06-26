@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module sig_pulse #(
-    parameter                   DEPTH   = 1
+    parameter                   RST_VAL = 0
 )(
     input                       clk         ,
     input                       rstn        ,
@@ -29,26 +29,17 @@ module sig_pulse #(
     );
 
 // >>>>>>>>>> var
-genvar                          i;
-reg     [DEPTH : 0]             sig_reg;
+reg                             sig_reg;
 
 // >>>>>>>>>> pulse
-assign sig_rising   = (sig_reg[DEPTH-1]) & (~sig_reg[DEPTH]);
-assign sig_falling  = (~sig_reg[DEPTH-1]) & (sig_reg[DEPTH]);
+assign sig_rising   = (sig) & (~sig_reg);
+assign sig_falling  = (~sig) & (sig_reg);
 
-always @(*) begin
-    sig_reg[0] = sig;
+always @(posedge clk or negedge rstn) begin
+    if(rstn == 1'd0)
+        sig_reg <= RST_VAL;
+    else
+        sig_reg <= sig;
 end
-
-generate
-    for(i = 1; i <= DEPTH; i = i+1) begin
-        always @(posedge clk or negedge rstn) begin
-            if(rstn == 1'd0)
-                sig_reg[i] <= 1'd0;
-            else
-                sig_reg[i] <= sig_reg[i-1];
-        end
-    end
-endgenerate
 
 endmodule

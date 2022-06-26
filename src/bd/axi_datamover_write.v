@@ -19,66 +19,70 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module axi_datamover_write #(
-    parameter                               DATA_WIDTH      = 64,
-    parameter                               CMD_WIDTH       = 72,
-    parameter                               ADDR_WIDTH      = 32,
-    parameter                               LEN_WIDTH       = 16,
-    parameter                               STS_WIDTH       = 32
+    parameter                               AXIS_FIFO_DEPTH = 32,
+    parameter                               S2MM_DATA_WIDTH = 64,
+    parameter                               S2MM_CMD_WIDTH  = 72,
+    parameter                               S2MM_ADDR_WIDTH = 32,
+    parameter                               S2MM_SIZE_WIDTH = 16,
+    parameter                               S2MM_STS_WIDTH  = 32
 )(
     // >>>>>>>>>> sys
     input                                   clk                 ,
     input                                   rstn                ,
-    // >>>>>>>>>> usr_cfg
-    input                                   start               ,
-    output                                  wready              ,
-    input       [ADDR_WIDTH-1 : 0]          waddr               ,
-    input       [LEN_WIDTH-1 : 0]           wdata_len           ,
-    input                                   wdata_vld           ,
-    input       [DATA_WIDTH-1 : 0]          wdata               ,
+    // >>>>>>>>>> ddr_write
+    output                                  ddr_wreq_ready      ,
+    input                                   ddr_wreq_valid      ,
+    input       [S2MM_ADDR_WIDTH-1:0]       ddr_wreq_addr       ,
+    input       [S2MM_SIZE_WIDTH-1:0]       ddr_wreq_size       ,
+    output                                  ddr_wdata_ready     ,
+    input                                   ddr_wdata_valid     ,
+    input                                   ddr_wdata_last      ,
+    input       [S2MM_DATA_WIDTH-1:0]       ddr_wdata           ,
+    output  reg                             ddr_wresp_valid     ,
+    output  reg [1:0]                       ddr_wresp           ,
     // >>>>>>>>>> axis_write
-    output  reg [CMD_WIDTH-1 : 0]           s2mm_cmd_tdata      ,
+    output  reg [S2MM_CMD_WIDTH-1:0]        s2mm_cmd_tdata      ,
     input                                   s2mm_cmd_tready     ,
     output  reg                             s2mm_cmd_tvalid     ,
-    output  reg [DATA_WIDTH-1 : 0]          s2mm_tdata          ,
-    output      [(DATA_WIDTH/8)-1 : 0]      s2mm_tkeep          ,
-    output  reg                             s2mm_tlast          , 
+    output      [S2MM_DATA_WIDTH-1:0]       s2mm_tdata          ,
+    output      [S2MM_DATA_WIDTH/8-1:0]     s2mm_tkeep          ,
+    output                                  s2mm_tlast          , 
     input                                   s2mm_tready         ,
-    output  reg                             s2mm_tvalid         ,
-    input       [STS_WIDTH-1 : 0]           s2mm_sts_tdata      ,
-    input       [(STS_WIDTH/8)-1 : 0]       s2mm_sts_tkeep      ,
+    output                                  s2mm_tvalid         ,
+    input       [S2MM_STS_WIDTH-1:0]        s2mm_sts_tdata      ,
+    input       [S2MM_STS_WIDTH/8-1:0]      s2mm_sts_tkeep      ,
     input                                   s2mm_sts_tlast      ,
-    output  reg                             s2mm_sts_tready     ,
+    output                                  s2mm_sts_tready     ,
     input                                   s2mm_sts_tvalid
     );
 
 // >>>>>>>>>> var
 // cmd
-wire    [3 : 0]                             cmd_xcache, cmd_xuser, cmd_rsv, cmd_tag;
+wire    [3:0]                               cmd_xcache, cmd_xuser, cmd_rsv, cmd_tag;
 wire                                        cmd_drr, cmd_eof, cmd_type;
-wire    [5 : 0]                             cmd_dsa;
-wire    [ADDR_WIDTH-1 : 0]                  cmd_saddr;
-wire    [22 : 0]                            cmd_btt;
+wire    [5:0]                               cmd_dsa;
+wire    [S2MM_ADDR_WIDTH-1:0]               cmd_saddr;
+wire    [22:0]                              cmd_btt;
 // data
-reg                                         write_en;
-reg     [LEN_WIDTH-1 : 0]                   wdata_cnt;
+wire    [S2MM_DATA_WIDTH/8-1:0]             ddr_wdata_keep;
 
 // >>>>>>>>>> cmd
-assign cmd_xcache   = 4'd0;
-assign cmd_xuser    = 4'd0;
-assign cmd_rsv      = 4'd0;
-assign cmd_tag      = 4'd0;
-assign cmd_drr      = 1'd0;
-assign cmd_eof      = 1'd0;
-assign cmd_type     = 1'd1;
-assign cmd_dsa      = 6'd0;
-assign cmd_btt      = wdata_len;
-assign cmd_saddr    = waddr;
-assign wready       = s2mm_tready;
+assign cmd_xcache       = 'd0;
+assign cmd_xuser        = 'd0;
+assign cmd_rsv          = 'd0;
+assign cmd_tag          = 'd0;
+assign cmd_drr          = 'd0;
+assign cmd_eof          = 'd0;
+assign cmd_type         = 'd1;
+assign cmd_dsa          = 'd0;
+assign cmd_btt          = ddr_wreq_size;
+assign cmd_saddr        = ddr_wreq_addr;
+assign ddr_wreq_ready   = s2mm_cmd_tready;
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         s2mm_cmd_tdata <= 'd0;
-    else if(start == 1'd1 && s2mm_cmd_tready == 1'd1)
+    else if(ddr_wreq_valid == 1'd1 && ddr_wreq_ready == 1'd1)
         s2mm_cmd_tdata <= {cmd_rsv, cmd_tag, cmd_saddr, cmd_drr, cmd_eof, cmd_dsa, cmd_type, cmd_btt};
 end
 
@@ -86,60 +90,48 @@ always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         s2mm_cmd_tvalid <= 1'd0;
     else
-        s2mm_cmd_tvalid <= (start == 1'd1) && (s2mm_cmd_tready == 1'd1);
+        s2mm_cmd_tvalid <= (ddr_wreq_valid == 1'd1) && (ddr_wreq_ready == 1'd1);
 end
 
-// >>>>>>>>>> data
-always @(posedge clk or negedge rstn) begin
-    if(rstn == 1'd0)
-        write_en <= 1'd0;
-    else if(start == 1'd1 && s2mm_cmd_tready == 1'd1)
-        write_en <= 1'd1;
-    else if(s2mm_tlast == 1'd1)
-        write_en <= 1'd0;
-end
+// >>>>>>>>>> resp
+assign s2mm_sts_tready  = 'd1;
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
-        wdata_cnt <= 'd0;
-    else if(wdata_vld == 1'd1 && wready == 1'd1) begin
-        if(wdata_cnt == (wdata_len[LEN_WIDTH-1 : 3]-1))
-            wdata_cnt <= 'd0;
-        else
-            wdata_cnt <= wdata_cnt + 1;
+        ddr_wresp <= 'd0;
+    else if(s2mm_sts_tready == 1'd1 && s2mm_sts_tvalid == 1'd1 && s2mm_sts_tkeep == {(S2MM_DATA_WIDTH/8){1'd1}}) begin
+        ddr_wresp <= (s2mm_sts_tdata[7:0] == 'h80) ? 'd0 : 'd3;
     end
 end
 
-assign s2mm_tkeep   = (s2mm_tvalid == 1'd1) ? {(DATA_WIDTH/8){1'd1}} : 'd0;
-
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
-        s2mm_tdata <= 'd0;
-    else if(write_en == 1'd1 && wdata_vld == 1'd1 && s2mm_tready == 1'd1)
-        s2mm_tdata <= wdata;
-end
-
-always @(posedge clk or negedge rstn) begin
-    if(rstn == 1'd0)
-        s2mm_tlast <= 1'd0;
-    else if(wdata_cnt == (wdata_len[LEN_WIDTH-1 : 3]-1) && wdata_vld == 1'd1)
-        s2mm_tlast <= 1'd1;
+        ddr_wresp_valid <= 1'd0;
     else
-        s2mm_tlast <= 1'd0;
+        ddr_wresp_valid <= (s2mm_sts_tready == 1'd1) && (s2mm_sts_tvalid == 1'd1) && (s2mm_sts_tkeep == {(S2MM_DATA_WIDTH/8){1'd1}});
 end
 
-always @(posedge clk or negedge rstn) begin
-    if(rstn == 1'd0)
-        s2mm_tvalid <= 1'd0;
-    else
-        s2mm_tvalid <= (write_en == 1'd1) && (wdata_vld == 1'd1);
-end
+// >>>>>>>>>> data
+assign ddr_wdata_keep   = (ddr_wdata_valid == 1'd1) ? {(S2MM_DATA_WIDTH/8){1'd1}} : 'd0;
 
-always @(posedge clk or negedge rstn) begin
-    if(rstn == 1'd0)
-        s2mm_sts_tready <= 1'd0;
-    else
-        s2mm_sts_tready <= 1'd1;
-end
+axis_async_fifo #(
+    .DATA_WIDTH             (S2MM_DATA_WIDTH    ),
+    .FIFO_DEPTH             (AXIS_FIFO_DEPTH    )
+)
+u_ddr_wdata_fifo (
+    .rstn                   (rstn               ),
+    .s_aclk                 (clk                ),
+    .s_axis_tready          (ddr_wdata_ready    ),
+    .s_axis_tvalid          (ddr_wdata_valid    ),
+    .s_axis_tdata           (ddr_wdata          ),
+    .s_axis_tkeep           (ddr_wdata_keep     ),
+    .s_axis_tlast           (ddr_wdata_last     ),
+    .m_aclk                 (clk                ),
+    .m_axis_tready          (s2mm_tready        ),
+    .m_axis_tvalid          (s2mm_tvalid        ),
+    .m_axis_tdata           (s2mm_tdata         ),
+    .m_axis_tkeep           (s2mm_tkeep         ),
+    .m_axis_tlast           (s2mm_tlast         )
+    );
 
 endmodule

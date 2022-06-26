@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Project_lib/verif/verif_sys_cfg_wrap
+T_opt
+Z1 !s110 1651591453
+Vm]faR6ZDRAJeAd44i:a:U3
+04 12 4 work sys_cfg_wrap fast 0
+=1-1063c846c5f5-6271491d-20f-77ac
+o-quiet +acc -auto_acc_if_foreign -work sim_build/work -g DATA_WIDTH=32 -g ADDR_WIDTH=32 -g BYTE_NUM=4
+Z2 tCvgOpt 0
+n@_opt
+OL;O;10.6d;65
+vcfg_reg
+Z3 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+R1
+!i10b 1
+!s100 J=13mfgEY8jXj4WUPQ26U0
+ILUXEk6NK4Rm840eQD9GL`3
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 !s105 sys_cfg_wrap_v_unit
+S1
+R0
+w1650704925
+8D:/Project_lib/src/reg/cfg_reg.v
+FD:/Project_lib/src/reg/cfg_reg.v
+Z6 L0 21
+Z7 OL;L;10.6d;65
+r1
+!s85 0
+31
+Z8 !s108 1651591453.000000
+Z9 !s107 D:/Project_lib/src/reg/cfg_reg.v|D:/Project_lib/src/reg/sys_cfg_regs.v|D:/Project_lib/src/cfg/sys_cfg_wrap.v|
+Z10 !s90 -reportprogress|300|-work|work|+define+COCOTB_SIM|-sv|-timescale|1ns/1ps|-mfcu|+acc|D:/Project_lib/src/cfg/sys_cfg_wrap.v|D:/Project_lib/src/reg/sys_cfg_regs.v|D:/Project_lib/src/reg/cfg_reg.v|
+!i113 0
+Z11 o-work work -sv -timescale 1ns/1ps -mfcu +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 !s92 -work work +define+COCOTB_SIM -sv -timescale 1ns/1ps -mfcu +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vsys_cfg_regs
+R3
+R1
+!i10b 1
+!s100 fmFZk8]P_PEfE2^326n3W0
+IVn^1cJPNnlJjQS>LjX5V[3
+R4
+R5
+S1
+R0
+w1651504398
+8D:/Project_lib/src/reg/sys_cfg_regs.v
+FD:/Project_lib/src/reg/sys_cfg_regs.v
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+R2
+vsys_cfg_wrap
+R3
+R1
+!i10b 1
+!s100 ZO0>^RHSI>lKP1U0lGO2o1
+IFziLoh7>S8h8Z:0LUdcKM2
+R4
+R5
+S1
+R0
+w1651504266
+8D:/Project_lib/src/cfg/sys_cfg_wrap.v
+FD:/Project_lib/src/cfg/sys_cfg_wrap.v
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+R2

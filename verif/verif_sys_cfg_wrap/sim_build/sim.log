@@ -1,0 +1,4 @@
+D:\Project_lib\verif\verif_sys_cfg_wrap\test_sys_cfg_wrap.py:27: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  self.dut.rstn <= 0
+D:\Project_lib\verif\verif_sys_cfg_wrap\test_sys_cfg_wrap.py:30: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  self.dut.rstn <= 1
