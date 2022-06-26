@@ -20,7 +20,7 @@
 # vmap work sim_build/work 
 # Modifying modelsim.ini
 # Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
-# Start time: 23:29:43 on May 02,2022
+# Start time: 23:24:13 on May 03,2022
 # vlog -reportprogress 300 -work work "+define+COCOTB_SIM" -sv -timescale 1ns/1ps -mfcu "+acc" D:/Project_lib/src/cfg/sys_cfg_wrap.v D:/Project_lib/src/reg/sys_cfg_regs.v D:/Project_lib/src/reg/cfg_reg.v 
 # -- Compiling module sys_cfg_wrap
 # -- Compiling module sys_cfg_regs
@@ -28,11 +28,11 @@
 # 
 # Top level modules:
 # 	sys_cfg_wrap
-# End time: 23:29:43 on May 02,2022, Elapsed time: 0:00:00
+# End time: 23:24:13 on May 03,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # ** Warning: (vsim-159) Mode option -64 is not supported in this context and will be ignored.
 # vsim -onfinish exit -pli "D:/software/miniconda/lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll" sim_build/work.sys_cfg_wrap -gDATA_WIDTH=32 -gADDR_WIDTH=32 -gBYTE_NUM=4 
-# Start time: 23:29:43 on May 02,2022
+# Start time: 23:24:13 on May 03,2022
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-3865) Due to PLI being present, full design access is being specified.
 # Loading sv_std.std
@@ -50,7 +50,7 @@
 # 
 #      0.00ns INFO     Running tests with cocotb v1.6.1 from D:\software\miniconda\lib\site-packages\cocotb
 # 
-#      0.00ns INFO     Seeding Python random module with 1651505390
+#      0.00ns INFO     Seeding Python random module with 1651591457
 # 
 #      0.00ns WARNING  Pytest not found, assertion rewriting will not occur
 # 
@@ -58,39 +58,33 @@
 # 
 #      0.00ns INFO     running run_test_cfg_reg (1/1)
 # 
-#      0.00ns ERROR    Exception raised by this forked coroutine
-# 
-#      0.00ns INFO     run_test_cfg_reg failed
+#     20.00ns INFO     run_test_cfg_reg failed
 # 
 #                      Traceback (most recent call last):
 # 
-#                        File "D:\Project_lib\verif\verif_sys_cfg_wrap\..\verif_common\bram_port.py", line 52, in rdbk_task
+#                        File "D:\Project_lib\verif\verif_sys_cfg_wrap\test_sys_cfg_wrap.py", line 42, in run_test_cfg_reg
 # 
-#                          if self.bram_en.integer.value == 1 and self.bram_we.integer.value == 0xf:
+#                          trans['addr'] = 0x10004
 # 
-#                        File "D:\software\miniconda\lib\site-packages\cocotb\handle.py", line 206, in __getattr__
+#                      TypeError: list indices must be integers or slices, not str
 # 
-#                          return object.__getattribute__(self, name)
-# 
-#                      AttributeError: 'ModifiableObject' object has no attribute 'integer'
-# 
-#      0.00ns INFO     ********************************************************************************************
+#     20.00ns INFO     ********************************************************************************************
 # 
 #                      ** TEST                                STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
 # 
 #                      ********************************************************************************************
 # 
-#                      ** test_sys_cfg_wrap.run_test_cfg_reg   FAIL           0.00           0.00          0.50  **
+#                      ** test_sys_cfg_wrap.run_test_cfg_reg   FAIL          20.00           0.00       9992.89  **
 # 
 #                      ********************************************************************************************
 # 
-#                      ** TESTS=1 PASS=0 FAIL=1 SKIP=0                        0.00           0.03          0.03  **
+#                      ** TESTS=1 PASS=0 FAIL=1 SKIP=0                       20.00           0.02       1333.22  **
 # 
 #                      ********************************************************************************************
 # 
 #                      
 # 
 # ** Note: $finish
-#    Time: 1 ps  Iteration: 0  Instance: /sys_cfg_wrap
-# End time: 23:29:50 on May 02,2022, Elapsed time: 0:00:07
+#    Time: 20001 ps  Iteration: 0  Instance: /sys_cfg_wrap
+# End time: 23:24:17 on May 03,2022, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 1

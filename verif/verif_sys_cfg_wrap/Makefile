@@ -2,7 +2,7 @@
 TOPLEVEL_LANG 	?= verilog
 SIM 			?= questa
 WAVES 			?= 1
-GUI 			?= 0
+GUI 			?= 1
 COCOTB_HDL_TIMEUNIT 		= 1ns
 COCOTB_HDL_TIMEPRECISION 	= 1ps
 

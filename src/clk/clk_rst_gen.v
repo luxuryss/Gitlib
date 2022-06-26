@@ -30,10 +30,7 @@ module clk_rst_gen (
     output                          pl_clk_125m         ,
     output                          pl_clk_250m         ,
     output                          pl_clk_300m         ,
-    output                          pl_rstn_100m        ,
-    output                          pl_rstn_125m        ,
-    output                          pl_rstn_250m        ,
-    output                          pl_rstn_300m
+    output                          pl_rstn
     );
 
 // >>>>>>>>>> pl_clk_out
@@ -43,28 +40,6 @@ assign pl_clk_250m      = ps_clk_250m;
 assign pl_clk_300m      = ps_clk_300m;
 
 // >>>>>>>>>> pl_rstn_out
-rstn_sync u_rstn_100m (
-    .clk_in             (ps_clk_100m        ),
-    .rstn_in            (ps_rstn            ),
-    .rstn_sync          (pl_rstn_100m       )
-    );
-
-rstn_sync u_rstn_125m (
-    .clk_in             (ps_clk_125m        ),
-    .rstn_in            (ps_rstn            ),
-    .rstn_sync          (pl_rstn_125m       )
-    );
-
-rstn_sync u_rstn_250m (
-    .clk_in             (ps_clk_250m        ),
-    .rstn_in            (ps_rstn            ),
-    .rstn_sync          (pl_rstn_250m       )
-    );
-
-rstn_sync u_rstn_300m (
-    .clk_in             (ps_clk_300m        ),
-    .rstn_in            (ps_rstn            ),
-    .rstn_sync          (pl_rstn_300m       )
-    );
+assign pl_rstn          = ps_rstn;
 
 endmodule

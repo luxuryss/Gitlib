@@ -19,23 +19,22 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module sys_cfg_regs #(
-    parameter                           ADDR_WIDTH  = 32        ,
-    parameter                           DATA_WIDTH  = 32        ,
-    parameter                           BYTE_NUM    = 4
+    parameter                           ADDR_WIDTH  = 32,
+    parameter                           DATA_WIDTH  = 32
 )(
     // >>>>>>>>>> clock and reset
-    input                               clk         ,
-    input                               rstn        ,
+    input                               clk             ,
+    input                               rstn            ,
     // >>>>>>>>>> axi_bram_controller
-    input                               bram_en     ,
-    input       [BYTE_NUM-1:0]          bram_we     ,
-    input       [ADDR_WIDTH-1:0]        bram_addr   ,
-    input       [DATA_WIDTH-1:0]        bram_din    ,
-    output      [DATA_WIDTH-1:0]        bram_dout   ,
+    input                               bram_cfg_en     ,
+    input       [DATA_WIDTH/4-1:0]      bram_cfg_we     ,
+    input       [ADDR_WIDTH-1:0]        bram_cfg_addr   ,
+    input       [DATA_WIDTH-1:0]        bram_cfg_data   ,
+    output      [DATA_WIDTH-1:0]        bram_cfg_rdbk   ,
     // >>>>>>>>>> sys_regs
-    output      [DATA_WIDTH-1:0]        reg_0       ,
-    output      [DATA_WIDTH-1:0]        reg_1       ,
-    output      [DATA_WIDTH-1:0]        reg_2       ,
+    output      [DATA_WIDTH-1:0]        reg_0           ,
+    output      [DATA_WIDTH-1:0]        reg_1           ,
+    output      [DATA_WIDTH-1:0]        reg_2           ,
     output      [DATA_WIDTH-1:0]        reg_3
     );
 
@@ -75,33 +74,33 @@ always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         cfg_en <= 'd0;
     else
-        cfg_en <= (bram_en == 1'd1) && (&bram_we);
+        cfg_en <= (bram_cfg_en == 1'd1) && (&bram_cfg_we);
 end
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         cfg_addr <= 'd0;
-    else if(bram_en == 1'd1 && (&bram_we))
-        cfg_addr <= bram_addr;
+    else if(bram_cfg_en == 1'd1 && (&bram_cfg_we))
+        cfg_addr <= bram_cfg_addr;
 end
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         cfg_data <= 'd0;
-    else if(bram_en == 1'd1 && (&bram_we))
-        cfg_data <= bram_din;
+    else if(bram_cfg_en == 1'd1 && (&bram_cfg_we))
+        cfg_data <= bram_cfg_data;
 end
 
 // read_regs
-assign bram_dout            = reg_rdata;
-assign bram_base_addr_mask  = bram_addr & REG_BASE_ADDR;
-assign bram_reg_addr_mask   = bram_addr & REG_ADDR_MASK;
+assign bram_cfg_rdbk        = reg_rdata;
+assign bram_base_addr_mask  = bram_cfg_addr & REG_BASE_ADDR;
+assign bram_reg_addr_mask   = bram_cfg_addr & REG_ADDR_MASK;
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
         reg_rdata <= 'd0;
-    else if(bram_en == 1'd1 && bram_base_addr_mask == REG_BASE_ADDR) begin
+    else if(bram_cfg_en == 1'd1 && bram_base_addr_mask == REG_BASE_ADDR) begin
         if(bram_reg_addr_mask[ADDR_WIDTH-1:2] < REG_NUM)        // 4byte_num < REG_NUM
-            reg_rdata <= reg_out[bram_addr[ADDR_WIDTH-1:2]];
+            reg_rdata <= reg_out[bram_cfg_addr[ADDR_WIDTH-1:2]];
         else
             reg_rdata <= 'd0;
     end
