@@ -276,10 +276,11 @@ proc create_root_design { parentCell } {
   set axi_datamover_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_datamover axi_datamover_0 ]
   set_property -dict [ list \
    CONFIG.c_dummy {0} \
-   CONFIG.c_m_axi_mm2s_data_width {128} \
-   CONFIG.c_m_axi_s2mm_data_width {128} \
+   CONFIG.c_m_axi_mm2s_data_width {64} \
+   CONFIG.c_m_axi_s2mm_data_width {64} \
    CONFIG.c_m_axis_mm2s_tdata_width {64} \
-   CONFIG.c_mm2s_burst_size {16} \
+   CONFIG.c_mm2s_burst_size {4} \
+   CONFIG.c_s2mm_burst_size {4} \
    CONFIG.c_s2mm_support_indet_btt {true} \
    CONFIG.c_s_axis_s2mm_tdata_width {64} \
  ] $axi_datamover_0
@@ -289,6 +290,9 @@ proc create_root_design { parentCell } {
 
   # Create instance: smartconnect_0, and set properties
   set smartconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect smartconnect_0 ]
+  set_property -dict [ list \
+   CONFIG.ADVANCED_PROPERTIES { __view__ { functional { S01_Entry { LIM_W_LEN 4 } S00_Entry { LIM_R_LEN 4 } } }} \
+ ] $smartconnect_0
 
   # Create instance: zynq_ultra_ps_e_0, and set properties
   set zynq_ultra_ps_e_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e zynq_ultra_ps_e_0 ]
@@ -469,6 +473,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__CRL_APB__GEM_TSU_REF_CTRL__ACT_FREQMHZ {250.000000} \
    CONFIG.PSU__CRL_APB__GEM_TSU_REF_CTRL__DIVISOR0 {6} \
    CONFIG.PSU__CRL_APB__GEM_TSU_REF_CTRL__DIVISOR1 {1} \
+   CONFIG.PSU__CRL_APB__GEM_TSU_REF_CTRL__SRCSEL {IOPLL} \
    CONFIG.PSU__CRL_APB__I2C0_REF_CTRL__DIVISOR0 {15} \
    CONFIG.PSU__CRL_APB__I2C0_REF_CTRL__DIVISOR1 {1} \
    CONFIG.PSU__CRL_APB__I2C1_REF_CTRL__DIVISOR0 {15} \
@@ -574,6 +579,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__FPDMASTERS_COHERENCY {0} \
    CONFIG.PSU__FPD_SLCR__WDT1__ACT_FREQMHZ {100.000000} \
    CONFIG.PSU__FPD_SLCR__WDT1__FREQMHZ {100.000000} \
+   CONFIG.PSU__FPD_SLCR__WDT_CLK_SEL__SELECT {APB} \
    CONFIG.PSU__FPGA_PL1_ENABLE {1} \
    CONFIG.PSU__FPGA_PL2_ENABLE {1} \
    CONFIG.PSU__FPGA_PL3_ENABLE {1} \
@@ -590,6 +596,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__IOU_SLCR__TTC3__FREQMHZ {100.000000} \
    CONFIG.PSU__IOU_SLCR__WDT0__ACT_FREQMHZ {100.000000} \
    CONFIG.PSU__IOU_SLCR__WDT0__FREQMHZ {100.000000} \
+   CONFIG.PSU__IOU_SLCR__WDT_CLK_SEL__SELECT {APB} \
    CONFIG.PSU__LPD_SLCR__CSUPMU__ACT_FREQMHZ {100.000000} \
    CONFIG.PSU__LPD_SLCR__CSUPMU__FREQMHZ {100.000000} \
    CONFIG.PSU__PCIE__BAR0_64BIT {0} \
@@ -686,7 +693,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__QSPI__PERIPHERAL__ENABLE {1} \
    CONFIG.PSU__QSPI__PERIPHERAL__IO {MIO 0 .. 5} \
    CONFIG.PSU__QSPI__PERIPHERAL__MODE {Single} \
-   CONFIG.PSU__SAXIGP2__DATA_WIDTH {128} \
+   CONFIG.PSU__SAXIGP2__DATA_WIDTH {64} \
    CONFIG.PSU__SAXIGP3__DATA_WIDTH {128} \
    CONFIG.PSU__SAXIGP4__DATA_WIDTH {128} \
    CONFIG.PSU__SD0_COHERENCY {0} \
