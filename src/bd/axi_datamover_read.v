@@ -63,8 +63,6 @@ wire                                        cmd_drr, cmd_eof, cmd_type;
 wire    [5:0]                               cmd_dsa;
 wire    [MM2S_ADDR_WIDTH-1:0]               cmd_saddr;
 wire    [22:0]                              cmd_btt;
-// data
-reg                                         read_en;
 
 // >>>>>>>>>> cmd
 assign cmd_xcache       = 'd0;

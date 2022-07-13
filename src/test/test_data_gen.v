@@ -68,7 +68,6 @@ wire                                    test_en_rising;
 reg                                     gap_en;
 reg     [6:0]                           gap_cnt;
 reg                                     test_status;
-reg     [12:0]                          wdata_cnt;
 reg     [MM2S_DATA_WIDTH-1:0]           check_data;
 
 // >>>>>>>>>> test_ctrl
@@ -120,7 +119,7 @@ always @(posedge clk or negedge rstn) begin
     end
     else if(test_en_rising == 1'd1 && wreq_ready == 1'd1) begin
         wreq_addr   <= test_addr;
-        wreq_size   <= test_size[15:3];
+        wreq_size   <= test_size;
     end
 end
 
@@ -133,6 +132,8 @@ end
 
 always @(posedge clk or negedge rstn) begin
     if(rstn == 1'd0)
+        wdata <= 'd0;
+    else if(test_en_rising == 1'd1)
         wdata <= 'd0;
     else if(wdata_ready == 1'd1 && wdata_valid == 1'd1) begin
         if(wdata == (test_size[15:3]-1))
@@ -149,8 +150,6 @@ always @(posedge clk or negedge rstn) begin
         wdata_valid <= 'd1;
     else if(wdata == (test_size[15:3]-1))
         wdata_valid <= 'd0;
-    else
-        wdata_valid <= 'd0;
 end
 
 assign wdata_last   = (wdata == (test_size[15:3]-1));
@@ -165,7 +164,7 @@ always @(posedge clk or negedge rstn) begin
     end
     else if(rreq_ready == 1'd1 && (&gap_cnt) == 1'd1 && test_status == 1'd1) begin
         rreq_addr   <= test_addr;
-        rreq_size   <= test_size[15:3];
+        rreq_size   <= test_size;
     end
 end
 

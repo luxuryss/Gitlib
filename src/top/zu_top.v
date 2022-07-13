@@ -42,6 +42,7 @@ localparam                          MM2S_STS_WIDTH  = 8;
 wire                                ps_clk_100m, ps_clk_125m, ps_clk_250m, ps_clk_300m, ps_rstn;
 wire                                clk_100m, clk_125m, clk_250m, clk_300m, rstn;
 // cfg
+wire                                bram_cfg_clk, bram_cfg_rst;
 wire    [CFG_ADDR_WIDTH-1:0]        bram_cfg_addr;
 wire    [CFG_DATA_WIDTH-1:0]        bram_cfg_data;
 wire    [CFG_DATA_WIDTH-1:0]        bram_cfg_rdbk;
@@ -108,7 +109,7 @@ u_sys_cfg_wrap (
     );
 
 vio_cfg u_vio_cfg (
-    .clk                (ps_clk_250m            ),
+    .clk                (clk_250m               ),
     .probe_in0          (test_err_cnt           ),
     .probe_out0         (test_en                ),
     .probe_out1         (test_addr              ),
@@ -131,7 +132,7 @@ test_data_gen #(
     .MM2S_STS_WIDTH     (MM2S_STS_WIDTH         )
 )
 u_test_data (
-    .clk                (clk                    ),
+    .clk                (clk_250m               ),
     .rstn               (rstn                   ),
     .test_en            (test_en                ),
     .test_addr          (test_addr              ),
@@ -180,6 +181,8 @@ u_bd_wrap (
     .ps_clk_250m        (ps_clk_250m            ),
     .ps_clk_300m        (ps_clk_300m            ),
     .ps_rstn            (ps_rstn                ),
+    .bram_cfg_clk       (bram_cfg_clk           ),
+    .bram_cfg_rst       (bram_cfg_rst           ),
     .bram_cfg_addr      (bram_cfg_addr          ),
     .bram_cfg_data      (bram_cfg_data          ),
     .bram_cfg_rdbk      (bram_cfg_rdbk          ),

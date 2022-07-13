@@ -39,6 +39,8 @@ module bd_wrap #(
     output                              ps_clk_300m         ,
     output                              ps_rstn             ,
     // >>>>>>>>>> bram_cfg
+    output                              bram_cfg_clk        ,
+    output                              bram_cfg_rst        ,
     output  [CFG_ADDR_WIDTH-1:0]        bram_cfg_addr       ,
     output  [CFG_DATA_WIDTH-1:0]        bram_cfg_data       ,
     input   [CFG_DATA_WIDTH-1:0]        bram_cfg_rdbk       ,
@@ -178,11 +180,11 @@ assign bram_cfg_addr    = tmp_bram_cfg_addr;
 
 design_1_wrapper u_design_1_wrapper (
     .BRAM_PORTA_0_addr              (tmp_bram_cfg_addr      ),
-    .BRAM_PORTA_0_clk               (ps_clk_250m            ),
+    .BRAM_PORTA_0_clk               (bram_cfg_clk           ),
     .BRAM_PORTA_0_din               (bram_cfg_data          ),
     .BRAM_PORTA_0_dout              (bram_cfg_rdbk          ),
     .BRAM_PORTA_0_en                (bram_cfg_en            ),
-    .BRAM_PORTA_0_rst               (~ps_rstn               ),
+    .BRAM_PORTA_0_rst               (bram_cfg_rst           ),
     .BRAM_PORTA_0_we                (bram_cfg_we            ),
     .M_AXIS_MM2S_0_tdata            (mm2s_tdata             ),
     .M_AXIS_MM2S_0_tkeep            (mm2s_tkeep             ),
